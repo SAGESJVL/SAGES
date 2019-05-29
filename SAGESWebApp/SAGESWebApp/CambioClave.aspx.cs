@@ -16,17 +16,28 @@ namespace SAGESWebApp
         private string tipoUsuario = "";
         private string tipoLogin = "";
         private int res;
+        private string sesion = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            try
+            {
+                sesion = Session["Usuario"].ToString();
+            }
+            catch
+            {
+                Messagebox("Debe iniciar sesión para ver este sitio. Será redireccionado.");
+                Response.Redirect("Login.aspx");
+            }
+
         }
 
         protected void ValidarContraseña(object sender, EventArgs e)
-        {            
+        {      
+            
             if (PassNueva.Text.Equals("") || PassNueva2.Text.Equals("") || PassActual.Text.Equals(""))
             {
-                Response.Write("Debe completar todos los campos.");
+                Messagebox("Debe completar todos los datos.");
             }
             else
             {
@@ -64,25 +75,31 @@ namespace SAGESWebApp
 
                         if (res == 1)
                         {
-                            //La contraseña ha sido guardada
+                            Messagebox("La contraseña ha sido cambiada. Debe volver a iniciar sesión");
                         }
                         else
                         {
-                            //Ocurrió un problema durante la operación. Intente nuevamente.
+                            Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
                         }
                     }
                     else
-                    { //la contraseña actual no coincide con los registros.
+                    {
+                        Messagebox("La contraseña ingresada no coincide con los registros, por favor reintente.");
                     }
                 }
                 else
                 {
-                    Response.Write("Las contraseñas no coinciden. Intente nuevamente.");
+                    Messagebox("Las contraseñas no coinciden, intente nuevamente.");
                     PassNueva.Text = "";
                     PassNueva2.Text = "";
                 }
             }
             
+        }
+
+        public void Messagebox(string xMessage)
+        {
+            Response.Write("<script>alert('" + xMessage + "')</script>");
         }
     }
 }

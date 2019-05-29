@@ -74,5 +74,10 @@ namespace SAGESWebApp
             }
           
         }
+
+        public void Messagebox(string xMessage)
+        {
+            Response.Write("<script>alert('" + xMessage + "')</script>");
+        }
     }
 }
