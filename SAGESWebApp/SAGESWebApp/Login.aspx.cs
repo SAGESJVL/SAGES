@@ -9,12 +9,12 @@ using System.Data.SqlClient;
 
 namespace SAGESWebApp
 {
-    public partial class _Default : Page
+    public partial class Login : Page
     {
         private string user = "";
         private string pass = "";
         private string tipoLogin = "";
-        private DataSet ds;
+        //private DataSet ds;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,8 +23,8 @@ namespace SAGESWebApp
 
         protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            user = Login.UserName;
-            pass = Login.Password;
+            user = Login_.UserName;
+            pass = Login_.Password;
             if (user.Contains("@inacap"))
             {
                 tipoLogin = "correo";
@@ -43,16 +43,22 @@ namespace SAGESWebApp
             da.SelectCommand.Parameters.AddWithValue("@cuenta", user);
             da.SelectCommand.Parameters.AddWithValue("@pass", pass);
             da.SelectCommand.Parameters.AddWithValue("@tipoAcceso", tipoLogin);
-            
+
+            con.Open();
             da.Fill(dt);
+            con.Close();
 
             if (dt.Rows.Count == 0)
             {
-                Login.UserNameLabelText = "";
-                Login.PasswordLabelText = "";
+                Login_.UserNameLabelText = "";
+                Login_.PasswordLabelText = "";
                             }
             else
             {
+                Session.Add("Usuario", user);
+                Session.Add("Pass", pass);
+                Session.Add("TipoUsuario", dt.Rows[0]["tipoPerfil"]);
+
                 if (dt.Rows[0]["tipoPerfil"].Equals("ADMINISTRADOR"))
                 {
                     Response.Redirect("AdminHome.aspx");

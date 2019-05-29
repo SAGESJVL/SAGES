@@ -9,14 +9,34 @@ using System.Data.SqlClient;
 
 namespace SAGESWebApp
 {
-    public partial class _Default : Page
+    public partial class DocenteHome : Page
     {
-        
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-           
-        //}
 
-        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Redireccionar(object sender, EventArgs e)
+        {
+            if (sender.Equals(CALENDARIO))
+            {
+
+            }
+            else if (sender.Equals(AGENDA))
+            {
+
+            }
+            else if (sender.Equals(CPASS))
+            {
+                Response.Redirect("CambioClave.aspx");
+            }
+            else if (sender.Equals(SALIR))
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+
     }
 }

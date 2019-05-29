@@ -10,33 +10,33 @@
 namespace SAGESWebApp {
     
     
-    public partial class SeleccionPerfil {
+    public partial class CambioClave {
         
         /// <summary>
-        /// Control lblLogin.
+        /// Control PassActual.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLogin;
+        protected global::System.Web.UI.WebControls.TextBox PassActual;
         
         /// <summary>
-        /// Control ADMIN.
+        /// Control PassNueva.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ADMIN;
+        protected global::System.Web.UI.WebControls.TextBox PassNueva;
         
         /// <summary>
-        /// Control DOCENTE.
+        /// Control PassNueva2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton DOCENTE;
+        protected global::System.Web.UI.WebControls.TextBox PassNueva2;
     }
 }

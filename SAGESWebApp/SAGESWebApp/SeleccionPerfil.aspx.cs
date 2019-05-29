@@ -9,9 +9,14 @@ using System.Data.SqlClient;
 
 namespace SAGESWebApp
 {
-    public partial class _Default : Page
+    public partial class SeleccionPerfil : Page
     {
-        protected void SeleccionPerfil(object sender, ImageClickEventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void SeleccionarPerfil(object sender, ImageClickEventArgs e)
         {
 
             if (sender.Equals(ADMIN))
@@ -25,10 +30,7 @@ namespace SAGESWebApp
             }
 
         }
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-
-        //}
+        
 
 
 

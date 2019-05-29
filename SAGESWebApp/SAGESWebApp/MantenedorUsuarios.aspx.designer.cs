@@ -10,15 +10,6 @@
 namespace SAGESWebApp {
     
     
-    public partial class Login {
-        
-        /// <summary>
-        /// Control Login_.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login_;
+    public partial class MantenedorUsuarios {
     }
 }

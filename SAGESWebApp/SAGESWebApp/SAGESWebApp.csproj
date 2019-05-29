@@ -141,9 +141,20 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="CambioClave.aspx" />
+    <Content Include="MantenedorUsuarios.aspx" />
     <Content Include="DocenteHome.aspx" />
     <Content Include="img\Administrador.jpg" />
+    <Content Include="img\Calendario.png" />
+    <Content Include="img\Contraseña.png" />
     <Content Include="img\Docente.png" />
+    <Content Include="img\Insumos.png" />
+    <Content Include="img\Maquinaria.png" />
+    <Content Include="img\Reportes.png" />
+    <Content Include="img\Reservas.png" />
+    <Content Include="img\Salas.png" />
+    <Content Include="img\Salir.png" />
+    <Content Include="img\Usuarios.png" />
     <Content Include="SeleccionPerfil.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="favicon.ico" />
@@ -218,6 +229,20 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambioClave.aspx.cs">
+      <DependentUpon>CambioClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambioClave.aspx.designer.cs">
+      <DependentUpon>CambioClave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantenedorUsuarios.aspx.cs">
+      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantenedorUsuarios.aspx.designer.cs">
+      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="DocenteHome.aspx.cs">
       <DependentUpon>DocenteHome.aspx</DependentUpon>

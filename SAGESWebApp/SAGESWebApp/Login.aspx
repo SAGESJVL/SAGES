@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SAGESWebApp._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SAGESWebApp.Login" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -12,7 +12,7 @@
         <div class="col-md-4">
             <h2>Bienvenido a D-Lab INACAP Apoquindo</h2>
             <h4>Ingrese su usuario y contraseña para continuar:</h4>
-            <asp:Login ID="Login" runat="server" OnAuthenticate="Login_Authenticate"
+            <asp:Login ID="Login_" runat="server" OnAuthenticate="Login_Authenticate"
                 LoginButtonText= "Ingresar"
                 PasswordLabelText="Contraseña:" RememberMeText="Recordarme la próxima vez."
                 UserNameLabelText="Usuario:">
