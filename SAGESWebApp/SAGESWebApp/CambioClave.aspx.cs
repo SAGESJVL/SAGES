@@ -23,6 +23,7 @@ namespace SAGESWebApp
             try
             {
                 sesion = Session["Usuario"].ToString();
+           
             }
             catch
             {

@@ -56,6 +56,8 @@ namespace SAGESWebApp
             else
             {
                 Session.Add("Usuario", user);
+                Session.Add("UsuarioRut", dt.Rows[0]["rut"]);
+                Session.Add("UsuarioCorreo", dt.Rows[0]["correoElectronico"]);
                 Session.Add("Pass", pass);
                 Session.Add("TipoUsuario", dt.Rows[0]["tipoPerfil"]);
 

@@ -12,6 +12,7 @@ namespace SAGESWebApp
     public partial class SeleccionPerfil : Page
     {
         private string sesion = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try

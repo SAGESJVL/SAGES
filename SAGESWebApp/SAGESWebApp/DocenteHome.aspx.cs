@@ -11,6 +11,7 @@ namespace SAGESWebApp
 {
     public partial class DocenteHome : Page
     {
+        private string sesion = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
