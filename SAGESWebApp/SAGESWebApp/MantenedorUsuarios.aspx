@@ -11,7 +11,7 @@
     <br />
     <asp:label runat="server" Width="300px">Rut:</asp:label><asp:TextBox ID="Rut_Usuario" runat="server" OnTextChanged="Rut_Usuario_TextChanged" Width="500px"></asp:TextBox>
     <br />
-    <asp:label runat="server" Width="300px" ID="existeUsuario"></asp:label>
+    <asp:label runat="server" Width="1000px" ID="existeUsuario"></asp:label>
     <br />
     <asp:label runat="server" Width="300px">Correo Usuario:</asp:label><asp:TextBox ID="Correo_Usuario" runat="server" Width="500px"></asp:TextBox>
     <br />
@@ -26,8 +26,15 @@
                                                                         <asp:ListItem Value="3">ADMINISTRADOR</asp:ListItem>
                                                                        </asp:DropDownList>
     <br />
+    <asp:label runat="server" Width="300px">Estado:</asp:label><asp:DropDownList ID="Estado_Usuario" runat="server" AppendDataBoundItems="false" Width="500px">
+                                                                        <asp:ListItem Value="0">Seleccione...</asp:ListItem>
+                                                                        <asp:ListItem Value="1">ACTIVO</asp:ListItem>
+                                                                        <asp:ListItem Value="2">BLOQUEADO</asp:ListItem>
+                                                                        <asp:ListItem Value="3">DESHABILITADO</asp:ListItem>
+                                                                       </asp:DropDownList>
     <br />
-    <asp:Button runat="server" OnClick="CrearUsuario" Text="Crear Usuario" ID="CreaUsuario"/><asp:Button runat="server" OnClick="ModificarUsuario" Text="Modificar Datos" ID="ModificaUsuario"/>
+    <br />
+    <asp:Button runat="server" OnClick="CreaUsuario_Click" Text="Crear Usuario" ID="CreaUsuario"/><asp:Button runat="server" OnClick="ModificaUsuario_Click" Text="Modificar Datos" ID="ModificaUsuario"/>
     <%--<asp:label runat="server" Width="300px" ID="AdminCambioClave"></asp:label>
     <br />--%>
 </asp:Content>

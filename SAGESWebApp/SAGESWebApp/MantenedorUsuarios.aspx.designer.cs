@@ -67,6 +67,15 @@ namespace SAGESWebApp {
         protected global::System.Web.UI.WebControls.DropDownList Perfil_Usuario;
         
         /// <summary>
+        /// Control Estado_Usuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Estado_Usuario;
+        
+        /// <summary>
         /// Control CreaUsuario.
         /// </summary>
         /// <remarks>
