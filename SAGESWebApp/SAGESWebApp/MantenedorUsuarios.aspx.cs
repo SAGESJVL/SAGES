@@ -14,7 +14,7 @@ namespace SAGESWebApp
 {
     public partial class MantenedorUsuarios : System.Web.UI.Page
     {
-        rivate string sesion = "";
+        private string sesion = "";
         private string rut = "";
         private string nombre = "";
         private string apellido = "";
