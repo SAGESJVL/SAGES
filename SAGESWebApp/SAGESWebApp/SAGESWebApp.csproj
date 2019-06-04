@@ -140,10 +140,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="AdminHome.aspx" />
-    <Content Include="CambioClave.aspx" />
-    <Content Include="MantenedorUsuarios.aspx" />
-    <Content Include="DocenteHome.aspx" />
     <Content Include="img\Administrador.jpg" />
     <Content Include="img\Calendario.png" />
     <Content Include="img\Contraseña.png" />
@@ -155,8 +151,6 @@
     <Content Include="img\Salas.png" />
     <Content Include="img\Salir.png" />
     <Content Include="img\Usuarios.png" />
-    <Content Include="SeleccionPerfil.aspx" />
-    <Content Include="Login.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -171,7 +165,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="WebForm1.aspx" />
+    <Content Include="SeleccionPerfil.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="AdminHome.aspx" />
+    <Content Include="CambioClave.aspx" />
+    <Content Include="DocenteHome.aspx" />
+    <Content Include="MantenedorUsuarios.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -224,48 +223,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminHome.aspx.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminHome.aspx.designer.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CambioClave.aspx.cs">
-      <DependentUpon>CambioClave.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CambioClave.aspx.designer.cs">
-      <DependentUpon>CambioClave.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MantenedorUsuarios.aspx.cs">
-      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MantenedorUsuarios.aspx.designer.cs">
-      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocenteHome.aspx.cs">
-      <DependentUpon>DocenteHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DocenteHome.aspx.designer.cs">
-      <DependentUpon>DocenteHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SeleccionPerfil.aspx.cs">
-      <DependentUpon>SeleccionPerfil.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SeleccionPerfil.aspx.designer.cs">
-      <DependentUpon>SeleccionPerfil.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -291,12 +248,47 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="SeleccionPerfil.aspx.cs">
+      <DependentUpon>SeleccionPerfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="SeleccionPerfil.aspx.designer.cs">
+      <DependentUpon>SeleccionPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambioClave.aspx.cs">
+      <DependentUpon>CambioClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambioClave.aspx.designer.cs">
+      <DependentUpon>CambioClave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocenteHome.aspx.cs">
+      <DependentUpon>DocenteHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocenteHome.aspx.designer.cs">
+      <DependentUpon>DocenteHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantenedorUsuarios.aspx.cs">
+      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantenedorUsuarios.aspx.designer.cs">
+      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

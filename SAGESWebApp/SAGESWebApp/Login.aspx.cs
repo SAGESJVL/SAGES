@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace SAGESWebApp
 {
-    public partial class Login : Page
+    public partial class Login : System.Web.UI.Page
     {
         private string user = "";
         private string pass = "";
@@ -18,7 +18,7 @@ namespace SAGESWebApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
@@ -52,7 +52,7 @@ namespace SAGESWebApp
             {
                 Login_.UserNameLabelText = "";
                 Login_.PasswordLabelText = "";
-                            }
+            }
             else
             {
                 Session.Add("Usuario", user);
@@ -74,7 +74,7 @@ namespace SAGESWebApp
                     Response.Redirect("DocenteHome.aspx");
                 }
             }
-          
+
         }
 
         public void Messagebox(string xMessage)

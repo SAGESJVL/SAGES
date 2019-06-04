@@ -7,9 +7,10 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace SAGESWebApp
 {
-    public partial class SeleccionPerfil : Page
+    public partial class SeleccionPerfil : System.Web.UI.Page
     {
         private string sesion = "";
 
@@ -17,7 +18,7 @@ namespace SAGESWebApp
         {
             try
             {
-                sesion = Session["Usuario"].ToString();               
+                sesion = Session["Usuario"].ToString();
             }
             catch
             {
@@ -46,6 +47,5 @@ namespace SAGESWebApp
         {
             Response.Write("<script>alert('" + xMessage + "')</script>");
         }
-
     }
 }

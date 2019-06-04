@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace SAGESWebApp
 {
-    public partial class DocenteHome : Page
+    public partial class DocenteHome : System.Web.UI.Page
     {
         private string sesion = "";
 
@@ -53,7 +53,5 @@ namespace SAGESWebApp
         {
             Response.Write("<script>alert('" + xMessage + "')</script>");
         }
-
-
     }
 }

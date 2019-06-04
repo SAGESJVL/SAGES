@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace SAGESWebApp
 {
-    public partial class CambioClave : Page
+    public partial class CambioClave : System.Web.UI.Page
     {
         private string user = "";
         private string pass = "";
@@ -23,7 +23,7 @@ namespace SAGESWebApp
             try
             {
                 sesion = Session["Usuario"].ToString();
-           
+
             }
             catch
             {
@@ -34,8 +34,8 @@ namespace SAGESWebApp
         }
 
         protected void ValidarContraseña(object sender, EventArgs e)
-        {      
-            
+        {
+
             if (PassNueva.Text.Equals("") || PassNueva2.Text.Equals("") || PassActual.Text.Equals(""))
             {
                 Messagebox("Debe completar todos los datos.");
@@ -95,7 +95,7 @@ namespace SAGESWebApp
                     PassNueva2.Text = "";
                 }
             }
-            
+
         }
 
         public void Messagebox(string xMessage)

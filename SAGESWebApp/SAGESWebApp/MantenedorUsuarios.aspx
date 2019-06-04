@@ -1,8 +1,6 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenedorUsuarios.aspx.cs" Inherits="SAGESWebApp.MantenedorUsuarios" %>
-
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenedorUsuarios.aspx.cs" Inherits="SAGESWebApp.MantenedorUsuarios" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<div class="jumbotron">
         <h1>Sistema de Administración y Gestión</h1>
         <p class="lead">SAGES - DLab</p>
         <%--<p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>--%>
@@ -34,7 +32,7 @@
                                                                        </asp:DropDownList>
     <br />
     <br />
-    <asp:Button runat="server" OnClick="CreaUsuario_Click" Text="Crear Usuario" ID="CreaUsuario"/><asp:Button runat="server" OnClick="ModificaUsuario_Click" Text="Modificar Datos" ID="ModificaUsuario"/>
+    <asp:Button runat="server" OnClick="CreaUsuario_Click(crear)" Text="Crear Usuario" ID="CreaUsuario"/><asp:Button runat="server" OnClick="ModificaUsuario_Click(modificar)" Text="Modificar Datos" ID="ModificaUsuario"/>
     <%--<asp:label runat="server" Width="300px" ID="AdminCambioClave"></asp:label>
     <br />--%>
 </asp:Content>

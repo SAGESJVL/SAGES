@@ -1,7 +1,5 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeleccionPerfil.aspx.cs" Inherits="SAGESWebApp.SeleccionPerfil" %>
-
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeleccionPerfil.aspx.cs" Inherits="SAGESWebApp.SeleccionPerfil" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <h1>Sistema de Administración y Gestión</h1>
         <p class="lead">SAGES - DLab</p>

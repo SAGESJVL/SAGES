@@ -12,9 +12,9 @@ using System.Net.Mail;
 
 namespace SAGESWebApp
 {
-    public partial class MantenedorUsuarios : Page
+    public partial class MantenedorUsuarios : System.Web.UI.Page
     {
-        private string sesion = "";
+        rivate string sesion = "";
         private string rut = "";
         private string nombre = "";
         private string apellido = "";
@@ -61,13 +61,14 @@ namespace SAGESWebApp
             }
         }
 
-        protected void CreaUsuario_Click(object sender, EventArgs e)
+        // protected void CreaUsuario_Click(object sender, EventArgs e)
+        protected void CreaUsuario_Click(String click)
         {
 
-            if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0)
-            {
-                existe = "no";
-            }
+            //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0)
+            //{
+            //    existe = "no";
+            //}
             if (existe == "no")
             {
                 if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0)
@@ -75,7 +76,7 @@ namespace SAGESWebApp
                     Messagebox("Debe completar todos los campos.");
                 }
                 else
-                { 
+                {
                     rut = Rut_Usuario.Text;
                     nombre = Nombre_Usuario.Text;
                     apellido = Apellido_Usuario.Text;
@@ -121,12 +122,13 @@ namespace SAGESWebApp
             }
         }
 
-        protected void ModificaUsuario_Click(object sender, EventArgs e)
+        //protected void ModificaUsuario_Click(object sender, EventArgs e)
+        protected void ModificaUsuario_Click(String click)
         {
-            if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0 && Estado_Usuario.SelectedIndex != 0)
-            {
-                existe = "si";
-            }
+            //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0 && Estado_Usuario.SelectedIndex != 0)
+            //{
+            //    existe = "si";
+            //}
             if (existe == "si")
             {
                 if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0 || Estado_Usuario.SelectedIndex == 0)
@@ -177,8 +179,8 @@ namespace SAGESWebApp
                 }
             }
         }
-       
-        
+
+
 
         public void Messagebox(string xMessage)
         {
@@ -189,23 +191,23 @@ namespace SAGESWebApp
         {
             rut = Rut_Usuario.Text;
 
-           
-                rut = rut.Replace(".", "").ToUpper();
-                //if (!rut.Contains("-"))
-                //{
-                //rut = rut.Split(rut.Length - 1);
-                //}
-                Regex expresion = new Regex("^([0-9]+-[0-9K])$");
-                string dv = rut.Substring(rut.Length - 1, 1);
-                if (!expresion.IsMatch(rut))
-                {
-                    Messagebox("El RUT ingresado no tiene formato válido");
-                
-                }
-                char[] charCorte = { '-' };
-                string[] rutTemp = rut.Split(charCorte);
-                if(dv != Digito(int.Parse(rutTemp[0])))
-                {
+
+            rut = rut.Replace(".", "").ToUpper();
+            //if (!rut.Contains("-"))
+            //{
+            //rut = rut.Split(rut.Length - 1);
+            //}
+            Regex expresion = new Regex("^([0-9]+-[0-9K])$");
+            string dv = rut.Substring(rut.Length - 1, 1);
+            if (!expresion.IsMatch(rut))
+            {
+                Messagebox("El RUT ingresado no tiene formato válido");
+
+            }
+            char[] charCorte = { '-' };
+            string[] rutTemp = rut.Split(charCorte);
+            if (dv != Digito(int.Parse(rutTemp[0])))
+            {
                 Messagebox("El RUT ingresado no es válido");
                 this.Correo_Usuario.Text = "";
                 this.Nombre_Usuario.Text = "";
@@ -213,13 +215,13 @@ namespace SAGESWebApp
                 this.Perfil_Usuario.SelectedIndex = 0;
 
             }
-                else
-                {
-                    BuscarRegistro(rut);
-                }          
-                 
+            else
+            {
+                BuscarRegistro(rut);
+            }
 
-            
+
+
         }
 
         public static string Digito(int rut)
@@ -267,7 +269,7 @@ namespace SAGESWebApp
             if (dt.Rows.Count == 0)
             {
                 this.existeUsuario.Text = "No existen registros con el RUT ingresado. Para crear uno nuevo, complete los datos a continuación:";
-                if (nombre != "") { existe = "no"; }
+                //if (nombre != "") { existe = "no"; }
                 Estado_Usuario.Enabled = false;
                 Rut_Usuario.Enabled = false;
                 Correo_Usuario.Enabled = true;
@@ -277,11 +279,11 @@ namespace SAGESWebApp
             }
             else
             {
-                existe = "si";
+                //existe = "si";
                 this.Correo_Usuario.Text = dt.Rows[0]["correoElectronico"].ToString();
                 this.Nombre_Usuario.Text = dt.Rows[0]["nombre"].ToString();
                 this.Apellido_Usuario.Text = dt.Rows[0]["apellido"].ToString();
-                
+
                 if (dt.Rows[0]["tipoPerfil"].ToString().Equals("DOCENTE"))
                 {
                     this.Perfil_Usuario.SelectedIndex = 1;
@@ -307,7 +309,7 @@ namespace SAGESWebApp
                 {
                     this.Estado_Usuario.SelectedIndex = 3;
                 }
-                
+
                 correoActual = dt.Rows[0]["correoElectronico"].ToString();
                 psw = dt.Rows[0]["clave"].ToString();
 
@@ -396,6 +398,5 @@ namespace SAGESWebApp
 
         //    return true;
         //}
-
     }
 }

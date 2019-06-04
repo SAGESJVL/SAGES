@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace SAGESWebApp
 {
-    public partial class AdminHome : Page
+    public partial class AdminHome : System.Web.UI.Page
     {
         private string sesion = "";
 
@@ -90,7 +90,5 @@ namespace SAGESWebApp
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Alert",
             "<script type='text/javascript'>alert(xMessage);</script>");
         }
-
-        
     }
 }
