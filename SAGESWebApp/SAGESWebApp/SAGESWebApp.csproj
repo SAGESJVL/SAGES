@@ -139,6 +139,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EstiloSages.css" />
     <Content Include="Content\Site.css" />
     <Content Include="img\Administrador.jpg" />
     <Content Include="img\Calendario.png" />

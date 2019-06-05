@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta charset="utf-8" />    
+    <title>Sages</title>
+    
+</head>
+<body>
+<header id="Encabezado">
+
+<h1 id="titulos">Bienvenidos</h1>
+</header>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" />
+    </div>
+    </form>
+</body>
+</html>
