@@ -65,7 +65,7 @@ namespace SAGESWebApp
             }
             else if (sender.Equals(INSUMOS))
             {
-
+                Response.Redirect("MantenedorInsumos.aspx");
             }
             else if (sender.Equals(MAQUINARIA))
             {
