@@ -10,7 +10,9 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background: red;
+    background: white;
+    height: 100%;
+    font-family: 'Lucida Sans';
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */

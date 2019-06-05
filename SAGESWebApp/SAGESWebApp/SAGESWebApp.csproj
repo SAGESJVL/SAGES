@@ -142,6 +142,7 @@
     <Content Include="Content\EstiloSages.css" />
     <Content Include="Content\Site.css" />
     <Content Include="img\Administrador.jpg" />
+    <Content Include="img\Agenda.png" />
     <Content Include="img\Calendario.png" />
     <Content Include="img\Contraseña.png" />
     <Content Include="img\Docente.png" />
@@ -149,8 +150,9 @@
     <Content Include="img\Maquinaria.png" />
     <Content Include="img\Reportes.png" />
     <Content Include="img\Reservas.png" />
+    <Content Include="img\sages.JPG" />
     <Content Include="img\Salas.png" />
-    <Content Include="img\Salir.png" />
+    <Content Include="img\salir.png" />
     <Content Include="img\Usuarios.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

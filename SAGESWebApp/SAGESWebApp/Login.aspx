@@ -2,28 +2,43 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 
-<div class="jumbotron">
+<div class="container"> <%--Contenedor ppal --%>
 
-    <header>
+      <header>
+          <div class="logo">
+                <img src="img/sages.JPG" />
+          </div>
+          
            <div class="contenedor">
-               <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                <h1 class="icon-venus">Sistema de Administración y Gestión</h1>
-      
+                <h3>SAGES - Sistema de Administración y Gestión</h3>
         </div>
-        </header>
-      
-    </div>
+    </header>  
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Bienvenido a D-Lab INACAP Apoquindo</h2>
-            <h4>Ingrese su usuario y contraseña para continuar:</h4>
+
+    <div class="header">
+            <h3>Bienvenido a D-Lab INACAP Apoquindo</h3>
+        </div>
+<div id="signup">
+
+        
+
+            <h6><b>Ingrese su usuario y contraseña para continuar:</b></h6>
+
+        <div class="inputs">
             <asp:Login ID="Login_" runat="server" OnAuthenticate="Login_Authenticate"
                 LoginButtonText= "Ingresar"
                 PasswordLabelText="Contraseña:" RememberMeText="Recordarme la próxima vez."
                 UserNameLabelText="Usuario:">
             </asp:Login>
         </div>
+        
+    
+  
+
+        </div>
+
+
     </div>
+ 
 
 </asp:Content>

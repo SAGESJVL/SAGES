@@ -14,9 +14,11 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+   
 
 </head>
+
+
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
@@ -39,32 +41,15 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <h1>holaa</h1>
-                    <ul class="nav navbar-nav">
-                        <%--<li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>--%>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
+     
+        <div class="container body-content" background-color: "ghostwhite">
+
+            
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - SAGES - Sistema de Adminsitración y Gestión</p>
+                <p><b>&copy; <%: DateTime.Now.Year %> - SAGES - Sistema de Adminsitración y Gestión</b></p>
             </footer>
         </div>
 
