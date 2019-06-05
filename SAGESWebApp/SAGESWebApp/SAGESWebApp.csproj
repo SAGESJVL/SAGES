@@ -172,6 +172,7 @@
     <Content Include="CambioClave.aspx" />
     <Content Include="DocenteHome.aspx" />
     <Content Include="MantenedorUsuarios.aspx" />
+    <Content Include="MantenedorInsumos.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -290,6 +291,13 @@
     </Compile>
     <Compile Include="MantenedorUsuarios.aspx.designer.cs">
       <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantenedorInsumos.aspx.cs">
+      <DependentUpon>MantenedorInsumos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantenedorInsumos.aspx.designer.cs">
+      <DependentUpon>MantenedorInsumos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
