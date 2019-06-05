@@ -61,69 +61,70 @@ namespace SAGESWebApp
             }
         }
 
-        // protected void CreaUsuario_Click(object sender, EventArgs e)
-        protected void CreaUsuario_Click(String click)
+        protected void CreaUsuario_Click(object sender, EventArgs e)
+        //protected void CreaUsuario_Click(String click)
         {
-
-            //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0)
-            //{
-            //    existe = "no";
-            //}
-            if (existe == "no")
-            {
-                if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0)
+            if (sender.Equals(CreaUsuario)) {
+                //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0)
+                //{
+                //    existe = "no";
+                //}
+                if (existe == "no")
                 {
-                    Messagebox("Debe completar todos los campos.");
-                }
-                else
-                {
-                    rut = Rut_Usuario.Text;
-                    nombre = Nombre_Usuario.Text;
-                    apellido = Apellido_Usuario.Text;
-                    correoActual = Correo_Usuario.Text;
-                    tipoPerfil = Perfil_Usuario.SelectedItem.ToString();
-                    psw = CrearPassword(10);
-
-                    DataTable dt = new DataTable();
-                    SqlConnection con = new SqlConnection
-                    (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
-
-                    SqlDataAdapter da = new SqlDataAdapter("Usuario_Crear", con);
-                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.AddWithValue("@rut", rut);
-                    da.SelectCommand.Parameters.AddWithValue("@nombre", nombre);
-                    da.SelectCommand.Parameters.AddWithValue("@apellido", apellido);
-                    da.SelectCommand.Parameters.AddWithValue("@correo", correoActual);
-                    da.SelectCommand.Parameters.AddWithValue("@tipoPerfil", tipoPerfil);
-                    da.SelectCommand.Parameters.AddWithValue("@clave", psw);
-
-                    con.Open();
-
-                    res = da.SelectCommand.ExecuteNonQuery();
-
-                    con.Close();
-
-                    if (res == 1)
+                    if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0)
                     {
-                        Messagebox("El usuario ha sido creado exitosamente");
-                        SendMail(correoActual, "sages.dlab@gmail.com", "", "Nuevo usuario DLab", "Su contraseña es" + psw);
-                        Rut_Usuario.Text = "";
-                        Nombre_Usuario.Text = "";
-                        Apellido_Usuario.Text = "";
-                        Correo_Usuario.Text = "";
-                        Perfil_Usuario.SelectedIndex = 0;
-                        Estado_Usuario.SelectedIndex = 0;
+                        Messagebox("Debe completar todos los campos.");
                     }
                     else
                     {
-                        Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
+                        rut = Rut_Usuario.Text;
+                        nombre = Nombre_Usuario.Text;
+                        apellido = Apellido_Usuario.Text;
+                        correoActual = Correo_Usuario.Text;
+                        tipoPerfil = Perfil_Usuario.SelectedItem.ToString();
+                        psw = CrearPassword(10);
+
+                        DataTable dt = new DataTable();
+                        SqlConnection con = new SqlConnection
+                        (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+
+                        SqlDataAdapter da = new SqlDataAdapter("Usuario_Crear", con);
+                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                        da.SelectCommand.Parameters.AddWithValue("@rut", rut);
+                        da.SelectCommand.Parameters.AddWithValue("@nombre", nombre);
+                        da.SelectCommand.Parameters.AddWithValue("@apellido", apellido);
+                        da.SelectCommand.Parameters.AddWithValue("@correo", correoActual);
+                        da.SelectCommand.Parameters.AddWithValue("@tipoPerfil", tipoPerfil);
+                        da.SelectCommand.Parameters.AddWithValue("@clave", psw);
+
+                        con.Open();
+
+                        res = da.SelectCommand.ExecuteNonQuery();
+
+                        con.Close();
+
+                        if (res == 1)
+                        {
+                            Messagebox("El usuario ha sido creado exitosamente");
+                            SendMail(correoActual, "sages.dlab@gmail.com", "", "Nuevo usuario DLab", "Su contraseña es" + psw);
+                            Rut_Usuario.Text = "";
+                            Nombre_Usuario.Text = "";
+                            Apellido_Usuario.Text = "";
+                            Correo_Usuario.Text = "";
+                            Perfil_Usuario.SelectedIndex = 0;
+                            Estado_Usuario.SelectedIndex = 0;
+                        }
+                        else
+                        {
+                            Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
+                        }
                     }
                 }
             }
         }
 
-        //protected void ModificaUsuario_Click(object sender, EventArgs e)
-        protected void ModificaUsuario_Click(String click)
+        protected void ModificaUsuario_Click(object sender, EventArgs e)
+        //protected void ModificaUsuario_Click(String click)
         {
             //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0 && Estado_Usuario.SelectedIndex != 0)
             //{

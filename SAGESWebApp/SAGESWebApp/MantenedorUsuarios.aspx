@@ -32,7 +32,7 @@
                                                                        </asp:DropDownList>
     <br />
     <br />
-    <asp:Button runat="server" OnClick="CreaUsuario_Click('crear')" Text="Crear Usuario" ID="CreaUsuario"/><asp:Button runat="server" OnClick="ModificaUsuario_Click('modificar')" Text="Modificar Datos" ID="ModificaUsuario"/>
+    <asp:Button runat="server" OnClick="CreaUsuario_Click" Text="Crear Usuario" ID="CreaUsuario"/><asp:Button runat="server" OnClick="ModificaUsuario_Click" Text="Modificar Datos" ID="ModificaUsuario"/>
     <%--<asp:label runat="server" Width="300px" ID="AdminCambioClave"></asp:label>
     <br />--%>
 </asp:Content>
