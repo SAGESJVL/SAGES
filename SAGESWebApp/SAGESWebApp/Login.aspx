@@ -3,9 +3,15 @@
 
 
 <div class="jumbotron">
-        <h1>Sistema de Administración y Gestión</h1>
-        <p class="lead">SAGES - DLab</p>
-        <%--<p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>--%>
+
+    <header>
+           <div class="contenedor">
+               <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                <h1 class="icon-venus">Sistema de Administración y Gestión</h1>
+      
+        </div>
+        </header>
+      
     </div>
 
     <div class="row">

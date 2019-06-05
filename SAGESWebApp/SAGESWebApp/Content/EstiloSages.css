@@ -1,3 +1,29 @@
 ﻿body {
-    background: red;
+    background:;
+}
+
+h1{
+
+    color: yellow;
+}
+
+.jumbotron{
+    background: blue;
+
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background: #FF4E50;
+    color: white;
+    position: fixed; /*el menu se queda pegado arriba*/
+    top: 0;
+    left: 0;
+    z-index: 100; /* con esto queda frente a todo*/
+}
+
+.contenedor{
+    width: 98%;
+    margin: auto;
 }
