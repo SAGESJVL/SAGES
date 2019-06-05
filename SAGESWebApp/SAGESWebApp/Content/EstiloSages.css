@@ -36,18 +36,7 @@ footer{
 /* Fin Trasversal*/
 
 /*Encabezado*/
-header {
-    width: 100%;
-    height: 100%;
-    background-color: yellow;
-    color: black;
-    top: 0;
-    left: 0;
-    z-index: 100; /* con esto queda frente a todo*/
-    margin-top: 5px; /*espacio debajo*/
-    float: none;
-    font-style: bold;
-}
+
 
 .logo{
     width: 5%;
@@ -118,9 +107,9 @@ div.gallery {
 
 
 div.gallery img {
-        width: 190px;
+        width: 150px;
         height: auto;
-        padding: 5px px 5px 5px;
+        padding: 5px 5px 5px 5px;
         display: block;
         margin: 0 auto;
         padding-top: 15px;

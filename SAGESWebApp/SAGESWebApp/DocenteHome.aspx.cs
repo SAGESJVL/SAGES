@@ -29,11 +29,11 @@ namespace SAGESWebApp
 
         protected void Redireccionar(object sender, EventArgs e)
         {
-            if (sender.Equals(CALENDARIO))
+            if (sender.Equals(AGENDA))
             {
 
             }
-            else if (sender.Equals(AGENDA))
+            /*else if (sender.Equals(CALENDARIO))*/
             {
 
             }
