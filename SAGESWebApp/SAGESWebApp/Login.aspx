@@ -26,6 +26,8 @@
             <h6><b>Ingrese su usuario y contraseña para continuar:</b></h6>
 
         <div class="inputs">
+
+            
             <asp:Login ID="Login_" runat="server" OnAuthenticate="Login_Authenticate"
                 LoginButtonText= "Ingresar"
                 PasswordLabelText="Contraseña:" RememberMeText="Recordarme la próxima vez."
