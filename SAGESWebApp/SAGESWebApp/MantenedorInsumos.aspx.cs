@@ -19,6 +19,10 @@ namespace SAGESWebApp
         private string tipo = "";
         private int cantidad;
         private string unidadMedida = "";
+        private int id;
+        private int res;
+        private bool modifica = false;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,42 +67,23 @@ namespace SAGESWebApp
 
             if (dt.Rows.Count != 0)
             {
-
-                GridInsumos.DataSource = dt;
-                GridInsumos.DataBind();
-                //this.Correo_Usuario.Text = dt.Rows[0]["correoElectronico"].ToString();
-                //this.Nombre_Usuario.Text = dt.Rows[0]["nombre"].ToString();
-                //this.Apellido_Usuario.Text = dt.Rows[0]["apellido"].ToString();
-
-                //if (dt.Rows[0]["tipoPerfil"].ToString().Equals("DOCENTE"))
-                //{
-                //    this.Perfil_Usuario.SelectedIndex = 1;
-                //}
-                //if (dt.Rows[0]["tipoPerfil"].ToString().Equals("DOCENTE-ADMINISTRADOR"))
-                //{
-                //    this.Perfil_Usuario.SelectedIndex = 2;
-                //}
-                //if (dt.Rows[0]["tipoPerfil"].ToString().Equals("ADMINISTRADOR"))
-                //{
-                //    this.Perfil_Usuario.SelectedIndex = 3;
-                //}
-
-                //if (dt.Rows[0]["estado"].ToString().Equals("ACTIVO"))
-                //{
-                //    this.Estado_Usuario.SelectedIndex = 1;
-                //}
-                //if (dt.Rows[0]["estado"].ToString().Equals("BLOQUEADO"))
-                //{
-                //    this.Estado_Usuario.SelectedIndex = 2;
-                //}
-                //if (dt.Rows[0]["estado"].ToString().Equals("DESHABILITADO"))
-                //{
-                //    this.Estado_Usuario.SelectedIndex = 3;
-                //}
-
-                //correoActual = dt.Rows[0]["correoElectronico"].ToString();
-                //psw = dt.Rows[0]["clave"].ToString();
-
+                if (modifica == true)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        if (dt.Rows[i]["Id Insumo"].ToString().Equals(id.ToString()))
+                        {
+                            modifica_descripcion.Text = dt.Rows[i]["Descripcion"].ToString();
+                            modifica_tipo.Text = dt.Rows[i]["Tipo"].ToString();
+                            dropUnidadMedidaModificar.SelectedItem.Text = dt.Rows[i]["Unidad de Medida"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    GridInsumos.DataSource = dt;
+                    GridInsumos.DataBind();
+                }                
             }
         }
 
@@ -109,11 +94,50 @@ namespace SAGESWebApp
 
         protected void CreaInsumo_Click(object sender, EventArgs e)
         {
+            descripción = crea_descripcion.Text;
+            tipo = crea_tipo.Text;
+            unidadMedida = dropUnidadMedidaCrear.SelectedItem.ToString();
+            cantidad = 0;
+            
+
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection
+            (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+
+            SqlDataAdapter da = new SqlDataAdapter("Insumo_Crear", con);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@descripcionInsumos", descripción);
+            da.SelectCommand.Parameters.AddWithValue("@tipo", tipo);
+            da.SelectCommand.Parameters.AddWithValue("@cantidad", cantidad);
+            da.SelectCommand.Parameters.AddWithValue("@unidadMedida", unidadMedida);
+         
+            con.Open();
+
+            res = da.SelectCommand.ExecuteNonQuery();
+
+            con.Close();
+
+            if (res == 1)
+            {
+                Messagebox("El insumo ha sido creado exitosamente");
+                crea_descripcion.Text = "";
+                crea_tipo.Text = "";
+                dropUnidadMedidaCrear.SelectedIndex = 0;
+                CargarDatos();
+            }
+            else
+            {
+                Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
+            }
 
         }
 
         protected void idInsumo_TextChanged(object sender, EventArgs e)
         {
+            id = int.Parse(idInsumo.Text);
+            modifica = true;
+            CargarDatos();
+            modifica = false;
 
         }
 
@@ -131,15 +155,15 @@ namespace SAGESWebApp
         {
             
             sender.ToString();
-            if (sender.Equals("CREAR INSUMO"))
+            if (DropOpcionesView.SelectedIndex == 1)
             {
                 Opciones.ActiveViewIndex = 0;
             }
-            if (sender.Equals("MODIFICAR INSUMO"))
+            if (DropOpcionesView.SelectedIndex == 2)
             {
                 Opciones.ActiveViewIndex = 1;
             }
-            if (sender.Equals("MODIFICAR CANTIDAD"))
+            if (DropOpcionesView.SelectedIndex == 3)
             {
                 Opciones.ActiveViewIndex = 2;
             }

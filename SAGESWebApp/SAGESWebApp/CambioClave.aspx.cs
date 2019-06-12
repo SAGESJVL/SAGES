@@ -77,6 +77,8 @@ namespace SAGESWebApp
                         if (res == 1)
                         {
                             Messagebox("La contraseña ha sido cambiada. Debe volver a iniciar sesión");
+                            Session.Clear();
+                            Response.Redirect("Login.aspx");
                         }
                         else
                         {

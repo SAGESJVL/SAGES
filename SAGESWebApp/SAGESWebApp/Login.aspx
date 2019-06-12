@@ -17,6 +17,8 @@
                 PasswordLabelText="Contraseña:" RememberMeText="Recordarme la próxima vez."
                 UserNameLabelText="Usuario:">
             </asp:Login>
+            <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Ingrese solo letras, guiones y números."            
+            ControlToValidate="Login_" ValidationExpression="[A-Za-z]-" ></asp:RegularExpressionValidator>--%>
         </div>
     </div>
 

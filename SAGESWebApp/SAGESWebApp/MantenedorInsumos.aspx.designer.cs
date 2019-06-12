@@ -47,5 +47,33 @@ namespace SAGESWebApp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View2;
+
+        protected global::System.Web.UI.WebControls.DropDownList DropOpcionesView;
+
+        protected global::System.Web.UI.WebControls.TextBox crea_descripcion;
+
+        protected global::System.Web.UI.WebControls.TextBox crea_tipo;
+
+        protected global::System.Web.UI.WebControls.DropDownList dropUnidadMedidaCrear;
+
+        protected global::System.Web.UI.WebControls.TextBox idInsumo;
+
+        protected global::System.Web.UI.WebControls.TextBox modifica_descripcion;
+
+        protected global::System.Web.UI.WebControls.TextBox modifica_tipo;
+
+        protected global::System.Web.UI.WebControls.DropDownList dropUnidadMedidaModificar;
+
+        protected global::System.Web.UI.WebControls.TextBox IdInsumoCantidad;
+
+        protected global::System.Web.UI.WebControls.TextBox valorCantidad;
+
+        protected global::System.Web.UI.WebControls.DropDownList DropCantidad;
+
+        protected global::System.Web.UI.WebControls.Button CreaInsumo;
+
+        protected global::System.Web.UI.WebControls.Button ModificaInsumo;
+
+        protected global::System.Web.UI.WebControls.Button ActualizaCantidad;
     }
 }

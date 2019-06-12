@@ -11,7 +11,7 @@
             <asp:ImageButton runat="server" AlternateText="CALENDARIO" ImageUrl="~/img/Calendario.png" ID="CALENDARIO" Height="300px" Width="300px" OnClick="Redireccionar"/>
         </div>
         <div class="box2">    
-            <asp:ImageButton runat="server" AlternateText="AGENDA" ImageUrl="~/img/Angeda.png" ID="AGENDA" Height="300px" Width="300px" OnClick="Redireccionar"/>
+            <asp:ImageButton runat="server" AlternateText="AGENDA" ImageUrl="~/img/Reservas.png" ID="AGENDA" Height="300px" Width="300px" OnClick="Redireccionar"/>
         </div>
         <div class="box3">
             <asp:ImageButton runat="server" AlternateText="CPASS" ImageUrl="~/img/Contraseña.png" ID="CPASS" Height="300px" Width="300px" OnClick="Redireccionar"/>

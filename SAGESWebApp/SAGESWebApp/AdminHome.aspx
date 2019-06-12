@@ -22,7 +22,7 @@
                 <asp:ImageButton runat="server" AlternateText="REPORTES" ImageUrl="~/img/Reportes.png" ID="REPORTES" Height="300px" Width="300px" OnClick="Redireccionar"/>
             </div>
             <div class="box5">
-                <asp:ImageButton runat="server" AlternateText="AGENDA" ImageUrl="~/img/Angeda.png" ID="AGENDA" Height="300px" Width="300px" OnClick="Redireccionar"/>
+                <asp:ImageButton runat="server" AlternateText="AGENDA" ImageUrl="~/img/Reservas.png" ID="AGENDA" Height="300px" Width="300px" OnClick="Redireccionar"/>
             </div>
             <div class="box6">
                 <asp:ImageButton runat="server" AlternateText="INSUMOS" ImageUrl="~/img/Insumos.png" ID="INSUMOS" Height="300px" Width="300px" OnClick="Redireccionar"/>

@@ -15,6 +15,11 @@ namespace SAGESWebApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CALENDARIO.Enabled = false;
+            SALAS.Enabled = false;
+            REPORTES.Enabled = false;
+            AGENDA.Enabled = false;
+            MAQUINARIA.Enabled = false;
             try
             {
                 sesion = Session["Usuario"].ToString();
@@ -24,14 +29,10 @@ namespace SAGESWebApp
                     if (Session["tipoUsuario"].ToString() == "DOCENTE")
                     {
 
-                        //Messagebox("No tiene privilegios para ver este sitio. Será redireccionado al portal Docente.");
-                        //this.Messagebox("No tiene privilegios para ver este sitio. Será redireccionado al portal Docente.");
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Alert", "<script type='text/javascript'>alert('alertmessage');</script>");
+                        Messagebox("No tiene privilegios para ver este sitio. Será redireccionado al portal Docente.");                        
                         Response.Redirect("DocenteHome.aspx");
                     }
-                }
-
-
+                }             
             }
             catch (Exception ex)
             {
@@ -85,10 +86,7 @@ namespace SAGESWebApp
 
         public void Messagebox(string xMessage)
         {
-            //Response.Write("<script>alert('" + xMessage + "')</script>");
-            //Response.Write("<script type='text/javascript' Language='vajascript'>alert(xMessage)</script>");
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Alert",
-            "<script type='text/javascript'>alert(xMessage);</script>");
+            Response.Write("<script>alert('" + xMessage + "')</script>");
         }
     }
 }

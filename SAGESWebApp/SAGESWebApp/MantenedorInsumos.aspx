@@ -19,9 +19,9 @@
     <br /> 
     <asp:MultiView ID="Opciones" runat="server">
         <asp:View ID="Crear" runat="server">
-            <asp:Label runat="server" Width="300px">Descripción:</asp:Label><asp:TextBox runat="server" ID="TextBox1" TextMode="MultiLine" MaxLength="200" Height="100px" Width="400px" Wrap="true" ></asp:TextBox>
+            <asp:Label runat="server" Width="300px">Descripción:</asp:Label><asp:TextBox runat="server" ID="crea_descripcion" TextMode="MultiLine" MaxLength="200" Height="100px" Width="400px" Wrap="true" ></asp:TextBox>
             <br />
-            <asp:Label runat="server" Width="300px">Tipo:</asp:Label><asp:TextBox runat="server" ID="tipoInsumo" Width="400px" placeholder="Filamento, PVC, Tela, Vinilo" ></asp:TextBox>
+            <asp:Label runat="server" Width="300px">Tipo:</asp:Label><asp:TextBox runat="server" ID="crea_tipo" Width="400px" placeholder="Filamento, PVC, Tela, Vinilo" ></asp:TextBox>
             <br />
             <asp:Label runat="server" Width="300px">Unidad de Medida:</asp:Label><asp:DropDownList runat="server" ID="dropUnidadMedidaCrear" Width="400px" AutoPostBack="True">
                                                                         <asp:ListItem Value="0">Seleccione una unidad</asp:ListItem>
@@ -35,9 +35,9 @@
         <asp:View ID="Modificar" runat="server">
             <asp:Label runat="server" Width="300px">Ingrese Id de Insumo a modificar:</asp:Label><asp:TextBox runat="server" ID="idInsumo" OnTextChanged="idInsumo_TextChanged"></asp:TextBox>
             <br />
-            <asp:Label runat="server" Width="300px">Descripción:</asp:Label><asp:TextBox runat="server" ID="TextBox2" TextMode="MultiLine" MaxLength="200" Height="100px" Width="400px" Wrap="true" ></asp:TextBox>
+            <asp:Label runat="server" Width="300px">Descripción:</asp:Label><asp:TextBox runat="server" ID="modifica_descripcion" TextMode="MultiLine" MaxLength="200" Height="100px" Width="400px" Wrap="true" ></asp:TextBox>
             <br />
-            <asp:Label runat="server" Width="300px">Tipo:</asp:Label><asp:TextBox runat="server" ID="TextBox3" Width="400px" placeholder="Filamento, PVC, Tela, Vinilo" ></asp:TextBox>
+            <asp:Label runat="server" Width="300px">Tipo:</asp:Label><asp:TextBox runat="server" ID="modifica_tipo" Width="400px" placeholder="Filamento, PVC, Tela, Vinilo" ></asp:TextBox>
             <br />
             <asp:Label runat="server" Width="300px">Unidad de Medida:</asp:Label><asp:DropDownList runat="server" ID="dropUnidadMedidaModificar" Width="400px" AutoPostBack="True">
                                                                         <asp:ListItem Value="0">Seleccione una unidad</asp:ListItem>
@@ -49,7 +49,7 @@
             <asp:Button runat="server" ID="ModificaInsumo" OnClick="ModificaInsumo_Click" Text="Modificar Datos"/>
         </asp:View>        
         <asp:View ID="Cantidad" runat="server">
-            <asp:Label runat="server" Width="300px">Ingrese Id de Insumo:</asp:Label><asp:TextBox runat="server" ID="IdInsumoCantidad" OnTextChanged="idInsumo_TextChanged"></asp:TextBox>
+            <asp:Label runat="server" Width="300px">Ingrese Id de Insumo:</asp:Label><asp:TextBox runat="server" ID="IdInsumoCantidad"></asp:TextBox>
             <br />
             <asp:Label runat="server" Width="300px">Cantidad:</asp:Label><asp:TextBox runat="server" ID="valorCantidad" Width="400px" ></asp:TextBox>
             <br />

@@ -23,7 +23,7 @@ namespace SAGESWebApp
 
         protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            user = Login_.UserName;
+            user = Login_.UserName;   
             pass = Login_.Password;
             if (user.Contains("@inacap"))
             {
@@ -31,6 +31,11 @@ namespace SAGESWebApp
             }
             else
             {
+                user = user.Replace(".", "").Replace("*","").Replace("+","").Replace("(", "").Replace(")", "");
+                if (!user.Contains("-"))
+                {
+                    user = user.Insert(user.Length - 1, "-");
+                }
                 tipoLogin = "rut";
             }
             DataTable dt = new DataTable();
