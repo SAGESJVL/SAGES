@@ -13,7 +13,6 @@
            <div class="contenedor">
                 <h3>SAGES - Sistema de Administración y Gestión</h3>
         </div>
-
          
     </header>  
 

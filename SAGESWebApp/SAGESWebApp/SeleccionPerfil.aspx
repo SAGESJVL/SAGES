@@ -1,16 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeleccionPerfil.aspx.cs" Inherits="SAGESWebApp.SeleccionPerfil" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
-        <h1>Sistema de Administración y Gestión</h1>
-        <p class="lead">SAGES - DLab</p>
-        <%--<p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>--%>
-    </div>
+   <div class="container2">
 
-    <div class="row">
-        <div class="col-md-4">        
-            <asp:label runat="server" ID="lblLogin">Selección de Perfil</asp:label><br />
-            <asp:ImageButton runat="server" AlternateText="ADMIN" ImageUrl="~/img/Administrador.jpg" ID="ADMIN" Height="300px" Width="300px" OnClick="SeleccionarPerfil"/><asp:ImageButton runat="server" AlternateText="DOCENTE" ImageUrl="~/img/Docente.png" ID="DOCENTE" Height="300px" Width="300px" OnClick="SeleccionarPerfil" />
+      <header>
+          <div class="logo">
+                <img src="img/sages.JPG" />
+          </div>
+          
+           <div class="contenedor">
+                <h3>SAGES - Sistema de Administración y Gestión</h3>
         </div>
-    </div>
+         
+    </header>  
+
+    <div class="header">
+            <h3><b>Selección de Perfil</b></h3>
+        </div>
+
+         <div class="gallery2">
+            <asp:ImageButton runat="server" AlternateText="ADMIN" ImageUrl="~/img/Administrador.jpg" ID="ADMIN" Height="300px" Width="300px" OnClick="SeleccionarPerfil"/>
+              <div class="desc"><h5>ADMINISTRADOR</h5></div>
+          </div>   
+            
+          <div class="gallery2"> 
+            <asp:ImageButton runat="server" AlternateText="DOCENTE" ImageUrl="~/img/Docente.png" ID="DOCENTE" Height="300px" Width="300px" OnClick="SeleccionarPerfil" />
+              <div class="desc"><h5>DOCENTE</h5></div>
+           </div>
 
 </asp:Content>

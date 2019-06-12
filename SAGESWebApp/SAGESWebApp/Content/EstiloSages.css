@@ -180,14 +180,11 @@ div.desc {
 #opc{
     margin-left: 47px;
 
-
 }
 #text-inside{
     padding-left: 40px;
     margin-left: 50px;
 
-}
-.botones {
 }
 
 .crear {
@@ -236,14 +233,35 @@ table{
 }
 
 
-
-.modificar{
-
-}
-
-.cantidad{
-
-}
-
-
 /*Fin Mantenedor Insumos*/
+
+/*Selección perfil*/
+
+div.gallery2 {
+    margin: 10px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 43%;
+    background-color: white;
+    margin-top: 30px;
+}
+
+
+    div.gallery2 img {
+        width: 150px;
+        height: 150px;
+        padding: 5px 5px 5px 5px;
+        display: block;
+        margin: 0 auto;
+        padding-top: 15px;
+    }
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+    text-shadow: inherit;
+    font-style: "Arial";
+}
+
+
+/*Fin Selección perfil*/
