@@ -125,6 +125,8 @@ div.desc {
 
 .text {
     margin: 40px 20px 40px 20px;
+    padding-left: 40px;
+
 }
 /* Fin Docente Home*/
 
@@ -155,3 +157,93 @@ div.desc {
 
 
     /* Fin Mantenedor Usuarios*/
+
+/*Mantenedor Insumos*/
+
+.tabla{
+    display: block;
+}
+
+#GridInsumos {
+   
+    margin-left: auto;
+    margin-right: auto;
+    font-style: normal;
+    color: black;
+    position: center;
+    width: 80%;
+    text-align: center;
+    height: 100%;
+    padding: 30px 30px 30px 30px;
+}
+
+#opc{
+    margin-left: 47px;
+
+
+}
+#text-inside{
+    padding-left: 40px;
+    margin-left: 50px;
+
+}
+.botones {
+}
+
+.crear {
+    width: 80%;
+    background-color: navajowhite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+
+
+}
+
+#TextBox1, idInsumo {
+    position: center;
+    Height: 20px;
+    Width: 300px;
+}
+
+table{
+    margin-bottom: 15px;
+
+}
+
+#CreaInsumo {
+    margin-left: 220px;
+}
+
+#ModificaInsumo {
+    margin-left: 220px;
+}
+
+#ActualizaCantidad {
+    margin-left: 220px;
+}
+
+#tablaCrear, td {
+    padding-top: 500px;
+    padding-bottom: 25px;
+    margin-bottom: 10px;
+    text-align: left;
+    height: 50px;
+    width: 15px;
+}
+
+
+
+.modificar{
+
+}
+
+.cantidad{
+
+}
+
+
+/*Fin Mantenedor Insumos*/

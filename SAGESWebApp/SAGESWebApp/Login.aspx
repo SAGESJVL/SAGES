@@ -4,6 +4,15 @@
 
 <div class="container"> <%--Contenedor ppal --%>
 
+        <header>
+          <div class="logo">
+                <img src="img/sages.JPG" />
+          </div>
+          
+           <div class="contenedor">
+                <h3>SAGES - Sistema de Administración y Gestión</h3>
+        </div>
+    </header>  
       
 
 
