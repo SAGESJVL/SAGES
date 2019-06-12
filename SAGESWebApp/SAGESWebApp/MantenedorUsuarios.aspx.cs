@@ -69,8 +69,8 @@ namespace SAGESWebApp
                 //{
                 //    existe = "no";
                 //}
-                if (existe == "no")
-                {
+                //if (existe == "no")
+                //{
                     if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0)
                     {
                         Messagebox("Debe completar todos los campos.");
@@ -120,18 +120,12 @@ namespace SAGESWebApp
                         }
                     }
                 }
-            }
+            //}
         }
 
-        protected void ModificaUsuario_Click(object sender, EventArgs e)
-        //protected void ModificaUsuario_Click(String click)
+        protected void ModificaUsuario_Click(object sender, EventArgs e)     
         {
-            //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0 && Estado_Usuario.SelectedIndex != 0)
-            //{
-            //    existe = "si";
-            //}
-            if (existe == "si")
-            {
+            
                 if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0 || Estado_Usuario.SelectedIndex == 0)
                 {
                     Messagebox("Debe completar todos los campos.");
@@ -160,6 +154,7 @@ namespace SAGESWebApp
                     da.SelectCommand.Parameters.AddWithValue("@clave", psw);
                     da.SelectCommand.Parameters.AddWithValue("@estado", estado);
                     da.SelectCommand.Parameters.AddWithValue("@tipoPerfil", tipoPerfil);
+                    da.SelectCommand.Parameters.AddWithValue("@usuarioModificacion", sesion);
 
 
                     con.Open();
@@ -176,9 +171,10 @@ namespace SAGESWebApp
                     else
                     {
                         Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
-                    }
+                    
                 }
-            }
+                }
+            
         }
 
 
@@ -270,13 +266,18 @@ namespace SAGESWebApp
             if (dt.Rows.Count == 0)
             {
                 this.existeUsuario.Text = "No existen registros con el RUT ingresado. Para crear uno nuevo, complete los datos a continuación:";
-                //if (nombre != "") { existe = "no"; }
+                //existe = "no";
+
+                Estado_Usuario.SelectedIndex = 0;                
+                Correo_Usuario.Text = "";
+                Nombre_Usuario.Text = "";
+                Apellido_Usuario.Text = "";                
+                Perfil_Usuario.Enabled = true;
                 Estado_Usuario.Enabled = false;
                 Rut_Usuario.Enabled = false;
                 Correo_Usuario.Enabled = true;
                 Nombre_Usuario.Enabled = true;
-                Apellido_Usuario.Enabled = true;
-                Perfil_Usuario.Enabled = true;
+                Apellido_Usuario.Enabled = true;                
             }
             else
             {

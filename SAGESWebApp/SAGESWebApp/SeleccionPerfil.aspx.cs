@@ -19,6 +19,12 @@ namespace SAGESWebApp
             try
             {
                 sesion = Session["Usuario"].ToString();
+                if (Session["tipoUsuario"].ToString() == "DOCENTE")
+                {
+
+                    Messagebox("No tiene privilegios para ver este sitio. Será redireccionado al portal Docente.");
+                    Response.Redirect("DocenteHome.aspx");
+                }
             }
             catch
             {
