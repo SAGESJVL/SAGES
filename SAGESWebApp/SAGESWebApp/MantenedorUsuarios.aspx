@@ -20,7 +20,7 @@
     <div id="usuarios">
             <asp:label runat="server" Width="300px">Rut:</asp:label><asp:TextBox ID="Rut_Usuario" runat="server" OnTextChanged="Rut_Usuario_TextChanged" Width="500px"></asp:TextBox>
             <br />
-            <asp:label runat="server" Width="1000px" ID="existeUsuario"></asp:label>
+            <asp:label runat="server" Width="300px" ID="existeUsuario"></asp:label>
             <br />
             <asp:label runat="server" Width="300px">Correo Usuario:</asp:label><asp:TextBox ID="Correo_Usuario" runat="server" Width="500px"></asp:TextBox>
             <br />
