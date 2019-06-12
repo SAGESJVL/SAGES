@@ -272,3 +272,21 @@ div.desc {
 
 
 /*Fin Selección perfil*/
+
+/*Cambio contraseña*/
+
+.contra{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-bottom: 20px;
+    padding-left: 180px;
+    padding-top: 20px;
+
+}
+
+#CambioContra {
+    margin-left: 140px;
+}
+
+/*Fin Cambio contraseña*/
