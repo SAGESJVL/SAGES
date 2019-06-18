@@ -22,7 +22,7 @@ namespace SAGESWebApp
         private int id;
         private int res;
         private bool modifica = false;
-
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,11 @@ namespace SAGESWebApp
                     }
                     else
                     {
-                        CargarDatos();                        
+                        if (!IsPostBack)
+                        {
+                            llenarDropTipoInsumo();
+                            CargarDatos();
+                        }                                                
                     }
                 }
             }
@@ -57,33 +61,20 @@ namespace SAGESWebApp
             SqlConnection con = new SqlConnection
             (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
 
-            SqlDataAdapter da = new SqlDataAdapter("Insumo_TraerTodo", con);
+            SqlDataAdapter da = new SqlDataAdapter("Insumo_TraerPorTipo", con);
+            //SqlDataAdapter da = new SqlDataAdapter("Insumo_TraerTodo", con);
             //SqlCommand cmd = new SqlCommand("Usuario_Login",con);
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;           
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@tipo", DropTipoInsumo.SelectedItem.ToString());
 
             con.Open();
             da.Fill(dt);
             con.Close();
 
             if (dt.Rows.Count != 0)
-            {
-                if (modifica == true)
-                {
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        if (dt.Rows[i]["Id Insumo"].ToString().Equals(id.ToString()))
-                        {
-                            modifica_descripcion.Text = dt.Rows[i]["Descripcion"].ToString();
-                            modifica_tipo.Text = dt.Rows[i]["Tipo"].ToString();
-                            dropUnidadMedidaModificar.SelectedItem.Text = dt.Rows[i]["Unidad de Medida"].ToString();
-                        }
-                    }
-                }
-                else
-                {
+            {                
                     GridInsumos.DataSource = dt;
-                    GridInsumos.DataBind();
-                }                
+                    GridInsumos.DataBind();                              
             }
         }
 
@@ -94,23 +85,86 @@ namespace SAGESWebApp
 
         protected void CreaInsumo_Click(object sender, EventArgs e)
         {
-            descripción = crea_descripcion.Text;
-            tipo = crea_tipo.Text;
-            unidadMedida = dropUnidadMedidaCrear.SelectedItem.ToString();
-            cantidad = 0;
-            
+            if (crea_descripcion.Text == "" || crea_tipo.Text == "" || dropUnidadMedidaCrear.SelectedItem.ToString() == "" || crea_cantidad.Text == "")
+            {
+                Messagebox("Debe completar todos los campos.");
+            }
+            else
+            {
+                descripción = crea_descripcion.Text;
+                tipo = crea_tipo.Text;
+                unidadMedida = dropUnidadMedidaCrear.SelectedItem.ToString();
+                cantidad = int.Parse(crea_cantidad.Text);
 
-            DataTable dt = new DataTable();
+
+                DataTable dt = new DataTable();
+                SqlConnection con = new SqlConnection
+                (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+
+                SqlDataAdapter da = new SqlDataAdapter("Insumo_Crear", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@descripcionInsumos", descripción);
+                da.SelectCommand.Parameters.AddWithValue("@tipo", tipo);
+                da.SelectCommand.Parameters.AddWithValue("@cantidad", cantidad);
+                da.SelectCommand.Parameters.AddWithValue("@unidadMedida", unidadMedida);
+
+                con.Open();
+
+                res = da.SelectCommand.ExecuteNonQuery();
+
+                con.Close();
+
+                if (res == 1)
+                {
+                    Messagebox("El insumo ha sido creado exitosamente");
+                    crea_descripcion.Text = "";
+                    crea_tipo.Text = "";
+                    dropUnidadMedidaCrear.SelectedIndex = 0;
+                    Opciones.ActiveViewIndex = -1;
+                    llenarDropTipoInsumo();
+                    CargarDatos();
+                }
+                else
+                {
+                    Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
+                }
+            }
+
+        }     
+
+        protected void DropTipoInsumo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void llenarDropTipoInsumo()
+        {
+            
             SqlConnection con = new SqlConnection
             (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
-
-            SqlDataAdapter da = new SqlDataAdapter("Insumo_Crear", con);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter("Insumo_TraerTipo", con);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@descripcionInsumos", descripción);
-            da.SelectCommand.Parameters.AddWithValue("@tipo", tipo);
-            da.SelectCommand.Parameters.AddWithValue("@cantidad", cantidad);
-            da.SelectCommand.Parameters.AddWithValue("@unidadMedida", unidadMedida);
-         
+            da.Fill(ds);
+
+            DropTipoInsumo.DataSource = ds;
+            DropTipoInsumo.DataTextField = "tipo";                            // FieldName of Table in DataBase
+            DropTipoInsumo.DataValueField = "tipo";
+            DropTipoInsumo.DataBind();
+            
+        }
+
+        protected void GridInsumos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = (GridViewRow)GridInsumos.Rows[e.RowIndex];
+            id = Convert.ToInt32(GridInsumos.DataKeys[e.RowIndex].Value.ToString());
+
+            SqlConnection con = new SqlConnection
+            (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+            SqlDataAdapter da = new SqlDataAdapter("Insumo_Eliminar", con);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;            
+            da.SelectCommand.Parameters.AddWithValue("@idInsumo", id);
+
             con.Open();
 
             res = da.SelectCommand.ExecuteNonQuery();
@@ -119,55 +173,91 @@ namespace SAGESWebApp
 
             if (res == 1)
             {
-                Messagebox("El insumo ha sido creado exitosamente");
-                crea_descripcion.Text = "";
-                crea_tipo.Text = "";
-                dropUnidadMedidaCrear.SelectedIndex = 0;
+                Messagebox("El insumo ha sido eliminado exitosamente.");
+                llenarDropTipoInsumo();
                 CargarDatos();
             }
             else
             {
-                Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
-            }
-
+                Messagebox("Ocurrió un problema, intente nuevamente.");
+                llenarDropTipoInsumo();
+                CargarDatos();
+            }           
         }
-
-        protected void idInsumo_TextChanged(object sender, EventArgs e)
+        protected void GridInsumos_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            id = int.Parse(idInsumo.Text);
-            modifica = true;
+            GridInsumos.EditIndex = e.NewEditIndex;
             CargarDatos();
-            modifica = false;
-
         }
-
-        protected void ModificaInsumo_Click(object sender, EventArgs e)
+        protected void GridInsumos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
 
-        }
-
-        protected void ActualizaCantidad_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void DropOpcionesView_SelectedIndexChanged(object sender, EventArgs e)
-        {
             
-            sender.ToString();
-            if (DropOpcionesView.SelectedIndex == 1)
-            {
-                Opciones.ActiveViewIndex = 0;
-            }
-            if (DropOpcionesView.SelectedIndex == 2)
-            {
-                Opciones.ActiveViewIndex = 1;
-            }
-            if (DropOpcionesView.SelectedIndex == 3)
-            {
-                Opciones.ActiveViewIndex = 2;
-            }
+            id = Convert.ToInt32(GridInsumos.DataKeys[e.RowIndex].Value.ToString());
+            GridViewRow row = (GridViewRow)GridInsumos.Rows[e.RowIndex];            
+            //TextBox txtname=(TextBox)gr.cell[].control[];  
+            TextBox desc = (TextBox)row.Cells[0].Controls[0];
+            descripción = desc.Text;
+            TextBox tipo_= (TextBox)row.Cells[1].Controls[0];
+            tipo = tipo_.Text;
+            TextBox cant = (TextBox)row.Cells[2].Controls[0];
+            cantidad = int.Parse(cant.Text);
+            TextBox uMedida = (TextBox)row.Cells[3].Controls[0];
+            unidadMedida = uMedida.Text;
 
+            if (desc.Text == "" || tipo_.Text == "" || cant.Text == "" || uMedida.Text == "")
+            {
+                Messagebox("Debe completar todos los campos.");
+            }
+            else
+            {
+                GridInsumos.EditIndex = -1;
+
+                SqlConnection con = new SqlConnection
+                (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+                SqlDataAdapter da = new SqlDataAdapter("Insumo_Modificar", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@descripcionInsumos", descripción);
+                da.SelectCommand.Parameters.AddWithValue("@tipo", tipo);
+                da.SelectCommand.Parameters.AddWithValue("@cantidad", cantidad);
+                da.SelectCommand.Parameters.AddWithValue("@unidadMedida", unidadMedida);
+                da.SelectCommand.Parameters.AddWithValue("@idInsumo", id);
+
+
+                con.Open();
+
+                res = da.SelectCommand.ExecuteNonQuery();
+
+                con.Close();
+
+                if (res == 1)
+                {
+                    Messagebox("El insumo ha sido modificado exitosamente.");
+                    llenarDropTipoInsumo();
+                    CargarDatos();
+                }
+                else
+                {
+                    Messagebox("Ocurrió un problema, intente nuevamente.");
+                    llenarDropTipoInsumo();
+                    CargarDatos();
+                }
+            }
+        }
+        protected void GridInsumos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridInsumos.PageIndex = e.NewPageIndex;
+            CargarDatos();
+        }
+        protected void GridInsumos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridInsumos.EditIndex = -1;
+            CargarDatos();
+        }       
+
+        protected void Crea_Click(object sender, EventArgs e)
+        {
+            Opciones.ActiveViewIndex = 0;
         }
     }
 }
