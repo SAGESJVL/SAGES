@@ -144,8 +144,12 @@
     <Content Include="img\Administrador.jpg" />
     <Content Include="img\Agenda.png" />
     <Content Include="img\Calendario.png" />
+    <Content Include="img\Cancelar.jpg" />
+    <Content Include="img\Confirmar.jpg" />
     <Content Include="img\Contraseña.png" />
+    <Content Include="img\Delete.jpg" />
     <Content Include="img\Docente.png" />
+    <Content Include="img\Edit.jpg" />
     <Content Include="img\Insumos.png" />
     <Content Include="img\Maquinaria.png" />
     <Content Include="img\Reportes.png" />
@@ -153,6 +157,7 @@
     <Content Include="img\sages.JPG" />
     <Content Include="img\Salas.png" />
     <Content Include="img\salir.png" />
+    <Content Include="img\user.png" />
     <Content Include="img\Usuarios.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -168,13 +173,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="MantenedorInsumos.aspx" />
+    <Content Include="MantenedorUsuarios.aspx" />
     <Content Include="SeleccionPerfil.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="AdminHome.aspx" />
     <Content Include="CambioClave.aspx" />
     <Content Include="DocenteHome.aspx" />
-    <Content Include="MantenedorUsuarios.aspx" />
-    <Content Include="MantenedorInsumos.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -229,6 +234,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MantenedorInsumos.aspx.cs">
+      <DependentUpon>MantenedorInsumos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantenedorInsumos.aspx.designer.cs">
+      <DependentUpon>MantenedorInsumos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantenedorUsuarios.aspx.cs">
+      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantenedorUsuarios.aspx.designer.cs">
+      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -286,20 +305,6 @@
     </Compile>
     <Compile Include="DocenteHome.aspx.designer.cs">
       <DependentUpon>DocenteHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MantenedorUsuarios.aspx.cs">
-      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MantenedorUsuarios.aspx.designer.cs">
-      <DependentUpon>MantenedorUsuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MantenedorInsumos.aspx.cs">
-      <DependentUpon>MantenedorInsumos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MantenedorInsumos.aspx.designer.cs">
-      <DependentUpon>MantenedorInsumos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

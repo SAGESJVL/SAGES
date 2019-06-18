@@ -1,4 +1,7 @@
-﻿/* Fin Trasversal*/
+﻿header {
+    height: 68px;
+}
+/* Fin Trasversal*/
 
 body {
     background-color: ghostwhite;
@@ -12,12 +15,13 @@ h1 {
     box-sizing: border-box;
     color: yellow;
 }
-h3{
-    text-align: center;
-    color: white;
 
+h3 {
+    text-align: center;
+    color: black;
 }
-h4{
+
+h4 {
     font-style: oblique;
     text-decoration: overline;
 }
@@ -28,7 +32,7 @@ h4{
     box-sizing: border-box; /* todo dentro de caja*/
 }
 
-footer{
+footer {
     text-align: center;
     color: black;
     background-color: yellow;
@@ -38,7 +42,7 @@ footer{
 /*Encabezado*/
 
 
-.logo{
+.logo {
     width: 5%;
     float: left;
     display: block;
@@ -64,30 +68,20 @@ footer{
 
 #signup {
     margin-top: 100px; /*espacio debajo*/
-    margin: auto; /*espacio debajo*/
     padding: 5px 25px 25px;
     margin-bottom: 50px;
     background-color: antiquewhite;
-    /*box-shadow: 0px 0px 0px 5px rgba( 255,255,255,0.4 ), 0px 4px 20px rgba(0,0,0,0.33 );
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    display: table;
-    position: center;*/
     width: 350px;
-    height: 100%;
+    height: 400px;
     border-radius: 8px; /*verrrr*/
 }
 
-.inputs{
-   
+.inputs {
     padding-left: 50px;
-
 }
 
-#Login_{
+#Login_ {
     width: 300px;
-
 }
 /*Fin Login*/
 /*Docente Home*/
@@ -105,42 +99,40 @@ div.gallery {
     margin: 10px;
     border: 1px solid #ccc;
     float: left;
-    width: 23%;
+    width: 22%;
     background-color: white;
     margin-top: 30px;
-
-    
 }
 
 
-div.gallery img {
+    div.gallery img {
         width: 150px;
         height: auto;
         padding: 5px 5px 5px 5px;
         display: block;
         margin: 0 auto;
         padding-top: 15px;
-     
-}
+    }
 
 div.desc {
     padding: 15px;
     text-align: center;
-    text-shadow:inherit;
-    font-style: "Arial";
+    text-shadow: inherit;
+    width:80%;
 }
 
 .text {
     margin: 40px 20px 40px 20px;
     padding-left: 40px;
-
 }
+
+
 /* Fin Docente Home*/
 
 
 /* Mantenedor Usuarios*/
 
-#usuarios{
+#usuarios {
     margin-top: 100px; /*espacio debajo*/
     margin: auto; /*espacio debajo*/
     padding: 5px 25px 20px;
@@ -152,27 +144,24 @@ div.desc {
     height: 100%;
     border-radius: 8px; /*verrrr*/
     margin-bottom: 40px;
-
 }
 
 .boton {
-
     float: left;
-    width:48%;
+    width: 48%;
     padding-left: 21px;
 }
 
 
-    /* Fin Mantenedor Usuarios*/
+/* Fin Mantenedor Usuarios*/
 
 /*Mantenedor Insumos*/
 
-.tabla{
+.tabla {
     display: block;
 }
 
 #GridInsumos {
-   
     margin-left: auto;
     margin-right: auto;
     font-style: normal;
@@ -184,27 +173,24 @@ div.desc {
     padding: 30px 30px 30px 30px;
 }
 
-#opc{
+#opc {
     margin-left: 47px;
-
 }
-#text-inside{
+
+#text-inside {
     padding-left: 40px;
     margin-left: 50px;
-
 }
 
 .crear {
     width: 80%;
-    background-color: navajowhite;
+    background-color: khaki;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     padding-left: 50px;
     padding-top: 30px;
     padding-bottom: 20px;
-
-
 }
 
 #TextBox1, idInsumo {
@@ -213,9 +199,8 @@ div.desc {
     Width: 300px;
 }
 
-table{
+table {
     margin-bottom: 15px;
-
 }
 
 #CreaInsumo {
@@ -237,6 +222,88 @@ table{
     text-align: left;
     height: 50px;
     width: 15px;
+}
+
+.GridInsumos {
+    width: 80%;
+    border: solid 2px black;
+    min-width: 80%;
+}
+.GridUsuarios {
+    width: 80%;
+    border: solid 2px black;
+    min-width: 80%;
+}
+
+.header {
+    background-color: #646464;
+    font-family: Arial;
+    color: White;
+    border: none 0px transparent;
+    height: 25px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.rows {
+    background-color: #fff;
+    font-family: Arial;
+    font-size: 14px;
+    color: #000;
+    min-height: 25px;
+    text-align: left;
+    border: none 0px transparent;
+}
+
+    .rows:hover {
+        background-color: #ff8000;
+        font-family: Arial;
+        color: #fff;
+        text-align: left;
+    }
+
+.selectedrow {
+    background-color: #ff8000;
+    font-family: Arial;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+.mydatagrid a /** FOR THE PAGING ICONS  **/ {
+    background-color: Transparent;
+    padding: 5px 5px 5px 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .mydatagrid a:hover /** FOR THE PAGING ICONS  HOVER STYLES**/ {
+        background-color: #000;
+        color: #fff;
+    }
+
+.mydatagrid span /** FOR THE PAGING ICONS CURRENT PAGE INDICATOR **/ {
+    background-color: #c9c9c9;
+    color: #000;
+    padding: 5px 5px 5px 5px;
+}
+
+.pager {
+    background-color: #646464;
+    font-family: Arial;
+    color: White;
+    height: 30px;
+    text-align: left;
+}
+
+
+.mydatagrid td {
+    padding: 5px;
+}
+
+.mydatagrid th {
+    padding: 5px;
 }
 
 
@@ -267,7 +334,6 @@ div.desc {
     padding: 15px;
     text-align: center;
     text-shadow: inherit;
-    
 }
 
 
@@ -275,14 +341,13 @@ div.desc {
 
 /*Cambio contraseña*/
 
-.contra{
+.contra {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
     margin-bottom: 20px;
     padding-left: 180px;
     padding-top: 20px;
-
 }
 
 #CambioContra {
@@ -320,3 +385,15 @@ div.desc {
 
 
 /*Fin Admin Home*/
+
+header {
+    height: 68px;
+}
+
+/*MAntenedor Usuario*/
+.Usuarios{
+    margin: auto;
+    padding: 40px 40px 40px 40px;
+}
+
+/*Fin MAtenedor Usuarios*/

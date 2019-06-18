@@ -13,6 +13,15 @@ namespace SAGESWebApp {
     public partial class MantenedorInsumos {
         
         /// <summary>
+        /// Control DropTipoInsumo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropTipoInsumo;
+        
+        /// <summary>
         /// Control GridInsumos.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace SAGESWebApp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridInsumos;
+        
+        /// <summary>
+        /// Control Crea.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Crea;
         
         /// <summary>
         /// Control Opciones.
@@ -31,51 +49,57 @@ namespace SAGESWebApp {
         protected global::System.Web.UI.WebControls.MultiView Opciones;
         
         /// <summary>
-        /// Control View1.
+        /// Control Crear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View View1;
-
+        protected global::System.Web.UI.WebControls.View Crear;
+        
         /// <summary>
-        /// Control View2.
+        /// Control crea_descripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
-        protected global::System.Web.UI.WebControls.View View1;
-        protected global::System.Web.UI.WebControls.View View2;
-
-        protected global::System.Web.UI.WebControls.DropDownList DropOpcionesView;
-
         protected global::System.Web.UI.WebControls.TextBox crea_descripcion;
-
+        
+        /// <summary>
+        /// Control crea_tipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox crea_tipo;
-
+        
+        /// <summary>
+        /// Control crea_cantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox crea_cantidad;
+        
+        /// <summary>
+        /// Control dropUnidadMedidaCrear.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropUnidadMedidaCrear;
-
-        protected global::System.Web.UI.WebControls.TextBox idInsumo;
-
-        protected global::System.Web.UI.WebControls.TextBox modifica_descripcion;
-
-        protected global::System.Web.UI.WebControls.TextBox modifica_tipo;
-
-        protected global::System.Web.UI.WebControls.DropDownList dropUnidadMedidaModificar;
-
-        protected global::System.Web.UI.WebControls.TextBox IdInsumoCantidad;
-
-        protected global::System.Web.UI.WebControls.TextBox valorCantidad;
-
-        protected global::System.Web.UI.WebControls.DropDownList DropCantidad;
-
+        
+        /// <summary>
+        /// Control CreaInsumo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Button CreaInsumo;
-
-        protected global::System.Web.UI.WebControls.Button ModificaInsumo;
-
-        protected global::System.Web.UI.WebControls.Button ActualizaCantidad;
     }
 }

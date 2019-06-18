@@ -16,6 +16,7 @@ namespace SAGESWebApp
     {
         private string sesion = "";
         private string rut = "";
+        private string rutActual = "";
         private string nombre = "";
         private string apellido = "";
         private string correoActual = "";
@@ -36,7 +37,7 @@ namespace SAGESWebApp
             Apellido_Usuario.Enabled = false;
             Correo_Usuario.Enabled = false;
             Perfil_Usuario.Enabled = false;
-            Estado_Usuario.Enabled = false;
+            //Estado_Usuario.Enabled = false;
 
             try
             {
@@ -52,6 +53,15 @@ namespace SAGESWebApp
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Alert", "<script type='text/javascript'>alert('alertmessage');</script>");
                         Response.Redirect("DocenteHome.aspx");
                     }
+
+                    else
+                    {
+                        if (!IsPostBack)
+                        {
+                            llenarDropTipoUsuario();
+                            CargarDatos();
+                        }
+                    }
                 }
             }
             catch
@@ -64,75 +74,15 @@ namespace SAGESWebApp
         protected void CreaUsuario_Click(object sender, EventArgs e)
         //protected void CreaUsuario_Click(String click)
         {
-            if (sender.Equals(CreaUsuario)) {
+            if (sender.Equals(CreaUsuario))
+            {
                 //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0)
                 //{
                 //    existe = "no";
                 //}
-                if (existe == "no")
-                {
-                    if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0)
-                    {
-                        Messagebox("Debe completar todos los campos.");
-                    }
-                    else
-                    {
-                        rut = Rut_Usuario.Text;
-                        nombre = Nombre_Usuario.Text;
-                        apellido = Apellido_Usuario.Text;
-                        correoActual = Correo_Usuario.Text;
-                        tipoPerfil = Perfil_Usuario.SelectedItem.ToString();
-                        psw = CrearPassword(10);
-
-                        DataTable dt = new DataTable();
-                        SqlConnection con = new SqlConnection
-                        (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
-
-                        SqlDataAdapter da = new SqlDataAdapter("Usuario_Crear", con);
-                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                        da.SelectCommand.Parameters.AddWithValue("@rut", rut);
-                        da.SelectCommand.Parameters.AddWithValue("@nombre", nombre);
-                        da.SelectCommand.Parameters.AddWithValue("@apellido", apellido);
-                        da.SelectCommand.Parameters.AddWithValue("@correo", correoActual);
-                        da.SelectCommand.Parameters.AddWithValue("@tipoPerfil", tipoPerfil);
-                        da.SelectCommand.Parameters.AddWithValue("@clave", psw);
-
-                        con.Open();
-
-                        res = da.SelectCommand.ExecuteNonQuery();
-
-                        con.Close();
-
-                        if (res == 1)
-                        {
-                            Messagebox("El usuario ha sido creado exitosamente");
-                            SendMail(correoActual, "sages.dlab@gmail.com", "", "Nuevo usuario DLab", "Su contraseña es" + psw);
-                            Rut_Usuario.Text = "";
-                            Nombre_Usuario.Text = "";
-                            Apellido_Usuario.Text = "";
-                            Correo_Usuario.Text = "";
-                            Perfil_Usuario.SelectedIndex = 0;
-                            Estado_Usuario.SelectedIndex = 0;
-                        }
-                        else
-                        {
-                            Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
-                        }
-                    }
-                }
-            }
-        }
-
-        protected void ModificaUsuario_Click(object sender, EventArgs e)
-        //protected void ModificaUsuario_Click(String click)
-        {
-            //if (Rut_Usuario.Text != "" && Nombre_Usuario.Text != "" && Apellido_Usuario.Text != "" && Correo_Usuario.Text != "" && Perfil_Usuario.SelectedIndex != 0 && Estado_Usuario.SelectedIndex != 0)
-            //{
-            //    existe = "si";
-            //}
-            if (existe == "si")
-            {
-                if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0 || Estado_Usuario.SelectedIndex == 0)
+                //if (existe == "no")
+                //{
+                if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0)
                 {
                     Messagebox("Debe completar todos los campos.");
                 }
@@ -141,26 +91,22 @@ namespace SAGESWebApp
                     rut = Rut_Usuario.Text;
                     nombre = Nombre_Usuario.Text;
                     apellido = Apellido_Usuario.Text;
-                    correoNuevo = Correo_Usuario.Text;
+                    correoActual = Correo_Usuario.Text;
                     tipoPerfil = Perfil_Usuario.SelectedItem.ToString();
-                    estado = Estado_Usuario.SelectedItem.ToString();
-                    sesion = Session["UsuarioRut"].ToString();
+                    psw = CrearPassword(10);
 
                     DataTable dt = new DataTable();
                     SqlConnection con = new SqlConnection
                     (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
 
-                    SqlDataAdapter da = new SqlDataAdapter("Usuario_Modificar", con);
+                    SqlDataAdapter da = new SqlDataAdapter("Usuario_Crear", con);
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.AddWithValue("@rut", rut);
                     da.SelectCommand.Parameters.AddWithValue("@nombre", nombre);
                     da.SelectCommand.Parameters.AddWithValue("@apellido", apellido);
-                    da.SelectCommand.Parameters.AddWithValue("@correoActual", correoActual);
-                    da.SelectCommand.Parameters.AddWithValue("@correoNuevo", correoNuevo);
-                    da.SelectCommand.Parameters.AddWithValue("@clave", psw);
-                    da.SelectCommand.Parameters.AddWithValue("@estado", estado);
+                    da.SelectCommand.Parameters.AddWithValue("@correo", correoActual);
                     da.SelectCommand.Parameters.AddWithValue("@tipoPerfil", tipoPerfil);
-
+                    da.SelectCommand.Parameters.AddWithValue("@clave", psw);
 
                     con.Open();
 
@@ -170,8 +116,16 @@ namespace SAGESWebApp
 
                     if (res == 1)
                     {
-                        Messagebox("El usuario ha sido modificado exitosamente.");
-
+                        Messagebox("El usuario ha sido creado exitosamente");
+                        //SendMail(correoActual, "sages.dlab@gmail.com", "", "Nuevo usuario DLab", "Su contraseña es" + psw);
+                        Rut_Usuario.Text = "";
+                        Nombre_Usuario.Text = "";
+                        Apellido_Usuario.Text = "";
+                        Correo_Usuario.Text = "";
+                        Perfil_Usuario.SelectedIndex = 0;
+                        //Estado_Usuario.SelectedIndex = 0;
+                        Opciones.ActiveViewIndex = -1;
+                        CargarDatos();
                     }
                     else
                     {
@@ -179,7 +133,62 @@ namespace SAGESWebApp
                     }
                 }
             }
+            //}
         }
+
+        //protected void ModificaUsuario_Click(object sender, EventArgs e)     
+        //{
+
+        //        if (Rut_Usuario.Text == "" || Nombre_Usuario.Text == "" || Apellido_Usuario.Text == "" || Correo_Usuario.Text == "" || Perfil_Usuario.SelectedIndex == 0 || Estado_Usuario.SelectedIndex == 0)
+        //        {
+        //            Messagebox("Debe completar todos los campos.");
+        //        }
+        //        else
+        //        {
+        //            rut = Rut_Usuario.Text;
+        //            nombre = Nombre_Usuario.Text;
+        //            apellido = Apellido_Usuario.Text;
+        //            correoNuevo = Correo_Usuario.Text;
+        //            tipoPerfil = Perfil_Usuario.SelectedItem.ToString();
+        //            estado = Estado_Usuario.SelectedItem.ToString();
+        //            sesion = Session["UsuarioRut"].ToString();
+
+        //            DataTable dt = new DataTable();
+        //            SqlConnection con = new SqlConnection
+        //            (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+
+        //            SqlDataAdapter da = new SqlDataAdapter("Usuario_Modificar", con);
+        //            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+        //            da.SelectCommand.Parameters.AddWithValue("@rut", rut);
+        //            da.SelectCommand.Parameters.AddWithValue("@nombre", nombre);
+        //            da.SelectCommand.Parameters.AddWithValue("@apellido", apellido);
+        //            da.SelectCommand.Parameters.AddWithValue("@correoActual", correoActual);
+        //            da.SelectCommand.Parameters.AddWithValue("@correoNuevo", correoNuevo);
+        //            da.SelectCommand.Parameters.AddWithValue("@clave", psw);
+        //            da.SelectCommand.Parameters.AddWithValue("@estado", estado);
+        //            da.SelectCommand.Parameters.AddWithValue("@tipoPerfil", tipoPerfil);
+        //            da.SelectCommand.Parameters.AddWithValue("@usuarioModificacion", sesion);
+
+
+        //            con.Open();
+
+        //            res = da.SelectCommand.ExecuteNonQuery();
+
+        //            con.Close();
+
+        //            if (res == 1)
+        //            {
+        //                Messagebox("El usuario ha sido modificado exitosamente.");
+
+        //            }
+        //            else
+        //            {
+        //                Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
+
+        //        }
+        //        }
+
+        //}
 
 
 
@@ -218,7 +227,7 @@ namespace SAGESWebApp
             }
             else
             {
-                BuscarRegistro(rut);
+                //BuscarRegistro(rut);
             }
 
 
@@ -270,56 +279,62 @@ namespace SAGESWebApp
             if (dt.Rows.Count == 0)
             {
                 this.existeUsuario.Text = "No existen registros con el RUT ingresado. Para crear uno nuevo, complete los datos a continuación:";
-                //if (nombre != "") { existe = "no"; }
-                Estado_Usuario.Enabled = false;
+                //existe = "no";
+
+                //Estado_Usuario.SelectedIndex = 0;
+                Correo_Usuario.Text = "";
+                Nombre_Usuario.Text = "";
+                Apellido_Usuario.Text = "";
+                Perfil_Usuario.Enabled = true;
+                //Estado_Usuario.Enabled = false;
                 Rut_Usuario.Enabled = false;
                 Correo_Usuario.Enabled = true;
                 Nombre_Usuario.Enabled = true;
                 Apellido_Usuario.Enabled = true;
-                Perfil_Usuario.Enabled = true;
             }
             else
             {
-                //existe = "si";
-                this.Correo_Usuario.Text = dt.Rows[0]["correoElectronico"].ToString();
-                this.Nombre_Usuario.Text = dt.Rows[0]["nombre"].ToString();
-                this.Apellido_Usuario.Text = dt.Rows[0]["apellido"].ToString();
 
-                if (dt.Rows[0]["tipoPerfil"].ToString().Equals("DOCENTE"))
-                {
-                    this.Perfil_Usuario.SelectedIndex = 1;
-                }
-                if (dt.Rows[0]["tipoPerfil"].ToString().Equals("DOCENTE-ADMINISTRADOR"))
-                {
-                    this.Perfil_Usuario.SelectedIndex = 2;
-                }
-                if (dt.Rows[0]["tipoPerfil"].ToString().Equals("ADMINISTRADOR"))
-                {
-                    this.Perfil_Usuario.SelectedIndex = 3;
-                }
+                this.existeUsuario.Text = "Ya existe un registro con el rut ingresado. Para modificarlo, ubíquelo en la grilla superior.";
+                //this.Correo_Usuario.Text = dt.Rows[0]["correoElectronico"].ToString();
+                //this.Nombre_Usuario.Text = dt.Rows[0]["nombre"].ToString();
+                //this.Apellido_Usuario.Text = dt.Rows[0]["apellido"].ToString();
 
-                if (dt.Rows[0]["estado"].ToString().Equals("ACTIVO"))
-                {
-                    this.Estado_Usuario.SelectedIndex = 1;
-                }
-                if (dt.Rows[0]["estado"].ToString().Equals("BLOQUEADO"))
-                {
-                    this.Estado_Usuario.SelectedIndex = 2;
-                }
-                if (dt.Rows[0]["estado"].ToString().Equals("DESHABILITADO"))
-                {
-                    this.Estado_Usuario.SelectedIndex = 3;
-                }
+                //if (dt.Rows[0]["tipoPerfil"].ToString().Equals("DOCENTE"))
+                //{
+                //    this.Perfil_Usuario.SelectedIndex = 1;
+                //}
+                //if (dt.Rows[0]["tipoPerfil"].ToString().Equals("DOCENTE-ADMINISTRADOR"))
+                //{
+                //    this.Perfil_Usuario.SelectedIndex = 2;
+                //}
+                //if (dt.Rows[0]["tipoPerfil"].ToString().Equals("ADMINISTRADOR"))
+                //{
+                //    this.Perfil_Usuario.SelectedIndex = 3;
+                //}
 
-                correoActual = dt.Rows[0]["correoElectronico"].ToString();
-                psw = dt.Rows[0]["clave"].ToString();
+                //if (dt.Rows[0]["estado"].ToString().Equals("ACTIVO"))
+                //{
+                //    this.Estado_Usuario.SelectedIndex = 1;
+                //}
+                //if (dt.Rows[0]["estado"].ToString().Equals("BLOQUEADO"))
+                //{
+                //    this.Estado_Usuario.SelectedIndex = 2;
+                //}
+                //if (dt.Rows[0]["estado"].ToString().Equals("DESHABILITADO"))
+                //{
+                //    this.Estado_Usuario.SelectedIndex = 3;
+                //}
+
+                //correoActual = dt.Rows[0]["correoElectronico"].ToString();
+                //psw = dt.Rows[0]["clave"].ToString();
 
                 Rut_Usuario.Enabled = false;
-                Estado_Usuario.Enabled = true;
-                Nombre_Usuario.Enabled = true;
-                Correo_Usuario.Enabled = true;
-                Apellido_Usuario.Enabled = true;
-                Perfil_Usuario.Enabled = true;
+                //Estado_Usuario.Enabled = true;
+                Nombre_Usuario.Enabled = false;
+                Correo_Usuario.Enabled = false;
+                Apellido_Usuario.Enabled = false;
+                Perfil_Usuario.Enabled = false;
             }
         }
 
@@ -335,36 +350,114 @@ namespace SAGESWebApp
             return res.ToString();
         }
 
-        public string SendMail(string toList, string from, string ccList, string subject, string body)
+        //public string SendMail(string toList, string from, string ccList, string subject, string body)
+        //{
+
+        //    MailMessage message = new MailMessage();
+        //    SmtpClient smtpClient = new SmtpClient();
+        //    string msg = string.Empty;
+        //    try
+        //    {
+        //        MailAddress fromAddress = new MailAddress(from);
+        //        message.From = fromAddress;
+        //        message.To.Add(toList);
+        //        if (ccList != null && ccList != string.Empty)
+        //            message.CC.Add(ccList);
+        //        message.Subject = subject;
+        //        message.IsBodyHtml = true;
+        //        message.Body = body;
+        //        smtpClient.Host = "smtp.gmail.com";   // We use gmail as our smtp client
+        //        smtpClient.Port = 587;
+        //        smtpClient.EnableSsl = true;
+        //        smtpClient.UseDefaultCredentials = true;
+        //        smtpClient.Credentials = new System.Net.NetworkCredential("sages.dlab@gmail.com", "SagesJvl2019");
+
+        //        smtpClient.Send(message);
+        //        msg = "Successful<BR>";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        msg = ex.Message;
+        //    }
+        //    return msg;
+        //}
+
+        protected void DropTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void llenarDropTipoUsuario()
         {
 
-            MailMessage message = new MailMessage();
-            SmtpClient smtpClient = new SmtpClient();
-            string msg = string.Empty;
-            try
-            {
-                MailAddress fromAddress = new MailAddress(from);
-                message.From = fromAddress;
-                message.To.Add(toList);
-                if (ccList != null && ccList != string.Empty)
-                    message.CC.Add(ccList);
-                message.Subject = subject;
-                message.IsBodyHtml = true;
-                message.Body = body;
-                smtpClient.Host = "smtp.gmail.com";   // We use gmail as our smtp client
-                smtpClient.Port = 587;
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = true;
-                smtpClient.Credentials = new System.Net.NetworkCredential("sages.dlab@gmail.com", "SagesJvl2019");
+            SqlConnection con = new SqlConnection
+            (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter("Usuario_TraerTipo", con);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.Fill(ds);
 
-                smtpClient.Send(message);
-                msg = "Successful<BR>";
-            }
-            catch (Exception ex)
+            DropTipoUsuario.DataSource = ds;
+            DropTipoUsuario.DataTextField = "tipoPerfil";                            // FieldName of Table in DataBase
+            DropTipoUsuario.DataValueField = "tipoPerfil";
+            DropTipoUsuario.DataBind();
+
+        }
+
+        protected void CargarDatos()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection
+            (System.Configuration.ConfigurationManager.ConnectionStrings["SAGES"].ToString());
+
+            SqlDataAdapter da = new SqlDataAdapter("Usuario_TraerPorTipo", con);
+            //SqlDataAdapter da = new SqlDataAdapter("Insumo_TraerTodo", con);
+            //SqlCommand cmd = new SqlCommand("Usuario_Login",con);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@tipoPerfil", DropTipoUsuario.SelectedItem.ToString());
+
+            con.Open();
+            da.Fill(dt);
+            con.Close();
+
+            if (dt.Rows.Count != 0)
             {
-                msg = ex.Message;
+                GridUsuarios.DataSource = dt;
+                GridUsuarios.DataBind();
             }
-            return msg;
+        }
+
+        protected void GridUsuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void GridUsuarios_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridUsuarios.EditIndex = e.NewEditIndex;
+            CargarDatos();
+        }
+
+        protected void GridUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void GridUsuarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridUsuarios.EditIndex = -1;
+            CargarDatos();
+        }
+
+        protected void GridUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridUsuarios.PageIndex = e.NewPageIndex;
+            CargarDatos();
+        }
+
+        protected void Crea_Click(object sender, EventArgs e)
+        {
+            Opciones.ActiveViewIndex = 0;
         }
 
 

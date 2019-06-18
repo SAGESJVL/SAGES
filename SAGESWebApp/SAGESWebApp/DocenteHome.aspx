@@ -44,8 +44,9 @@
           <asp:ImageButton runat="server" AlternateText="SALIR" ImageUrl="~/img/salir.png" ID="SALIR"  OnClick="Redireccionar"/>
           <div class="desc"><h5>SALIR</h5></div>
         </div>
+</div>
 
- </div>
+ 
 
 
 </asp:Content>
