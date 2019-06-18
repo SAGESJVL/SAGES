@@ -28,7 +28,7 @@ namespace SAGESWebApp
         private string existe = "noaun";
         private DropDownList DropDownList1;
         private DropDownList DropDownList2;
-        private bool editando = false;
+        private bool creando = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -127,7 +127,8 @@ namespace SAGESWebApp
                         Correo_Usuario.Text = "";
                         Perfil_Usuario.SelectedIndex = 0;
                         //Estado_Usuario.SelectedIndex = 0;
-                        Opciones.ActiveViewIndex = -1;
+                        //Opciones.ActiveViewIndex = -1;
+                        creando = false;
                         CargarDatos();
                     }
                     else
@@ -230,7 +231,7 @@ namespace SAGESWebApp
             }
             else
             {
-                //BuscarRegistro(rut);
+                BuscarRegistro(rut);
             }
 
 
@@ -285,6 +286,7 @@ namespace SAGESWebApp
                 //existe = "no";
 
                 //Estado_Usuario.SelectedIndex = 0;
+                creando = true;
                 Correo_Usuario.Text = "";
                 Nombre_Usuario.Text = "";
                 Apellido_Usuario.Text = "";
@@ -443,6 +445,7 @@ namespace SAGESWebApp
         {
             rut = GridUsuarios.DataKeys[e.RowIndex].Value.ToString();
             GridViewRow row = (GridViewRow)GridUsuarios.Rows[e.RowIndex];
+            int row2 = e.RowIndex;
 
             TextBox nom = (TextBox)row.Cells[1].Controls[0];
             nombre = nom.Text;
@@ -495,26 +498,36 @@ namespace SAGESWebApp
                 if (res == 1)
                 {
                     Messagebox("El usuario ha sido modificado exitosamente.");
-                    CargarDatos();                    
+                    //CargarDatos();                    
             }
                 else
                 {
                     Messagebox("Ocurrió un problema durante el proceso, por favor intente nuevamente.");
-                    CargarDatos();                    
+                    //CargarDatos();                    
             }
+                
+            }
+            DropDownList1 = (GridUsuarios.Rows[row2].FindControl("DropTipoUsuarioGrid") as DropDownList);
+            DropDownList2 = (GridUsuarios.Rows[row2].FindControl("DropEstadoUsuario") as DropDownList);
             DropDownList1.Enabled = false;
             DropDownList2.Enabled = false;
             GridUsuarios.EditIndex = -1;
-            }
+            CargarDatos();
 
         }
 
         protected void GridUsuarios_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridUsuarios.EditIndex = e.NewEditIndex;            
-            CargarDatos();
-            DropDownList1.Enabled = true;
-            DropDownList2.Enabled = true;
+            if (creando == false)
+            {
+                GridUsuarios.EditIndex = e.NewEditIndex;
+                int row = e.NewEditIndex;
+                CargarDatos();
+                DropDownList1 = (GridUsuarios.Rows[row].FindControl("DropTipoUsuarioGrid") as DropDownList);
+                DropDownList2 = (GridUsuarios.Rows[row].FindControl("DropEstadoUsuario") as DropDownList);
+                DropDownList1.Enabled = true;
+                DropDownList2.Enabled = true;
+            }
         }
 
         protected void GridUsuarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

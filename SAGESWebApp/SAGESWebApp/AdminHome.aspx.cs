@@ -19,7 +19,7 @@ namespace SAGESWebApp
             SALAS.Enabled = false;
             REPORTES.Enabled = false;
             AGENDA.Enabled = false;
-            MAQUINARIA.Enabled = false;
+          
             try
             {
                 sesion = Session["Usuario"].ToString();
@@ -70,7 +70,7 @@ namespace SAGESWebApp
             }
             else if (sender.Equals(MAQUINARIA))
             {
-
+                Response.Redirect("MantenedorRecursos.aspx");
             }
             else if (sender.Equals(CPASS))
             {

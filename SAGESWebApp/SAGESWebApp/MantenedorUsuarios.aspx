@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenedorUsuarios.aspx.cs" Inherits="SAGESWebApp.MantenedorUsuarios" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenedorUsuarios.aspx.cs" Inherits="SAGESWebApp.MantenedorUsuarios" EnableEventValidation="true"%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="jumbotron">
         <h1>Sistema de Administración y Gestión</h1>
