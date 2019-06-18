@@ -18,7 +18,7 @@ namespace SAGESWebApp
             CALENDARIO.Enabled = false;
             SALAS.Enabled = false;
             REPORTES.Enabled = false;
-            AGENDA.Enabled = false;
+            
           
             try
             {
@@ -62,7 +62,7 @@ namespace SAGESWebApp
             }
             else if (sender.Equals(AGENDA))
             {
-
+                Response.Redirect("MantenedorReservas.aspx");
             }
             else if (sender.Equals(INSUMOS))
             {
