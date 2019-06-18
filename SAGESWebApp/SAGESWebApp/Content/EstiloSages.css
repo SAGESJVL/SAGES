@@ -70,11 +70,12 @@ footer {
 #signup {
     margin-top: 100px; /*espacio debajo*/
     padding: 5px 25px 25px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     background-color: antiquewhite;
     width: 350px;
-    height: 400px;
+    height: 100%;
     border-radius: 8px; /*verrrr*/
+    margin: 0 auto;
 }
 
 .inputs {
@@ -216,14 +217,14 @@ table {
     margin-left: 220px;
 }
 
-#tablaCrear, td {
+/*#tablaCrear, td {
     padding-top: 500px;
     padding-bottom: 25px;
     margin-bottom: 10px;
     text-align: left;
     height: 50px;
     width: 15px;
-}
+}*/
 
 .GridInsumos {
     width: 80%;
@@ -420,7 +421,7 @@ header {
     font-weight: 700;
 }
 .but{
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .but2 {
@@ -431,6 +432,19 @@ header {
     margin-left: -60px;
 }
 
+.but4 {
+    margin-left: 220px;
+}
+
+.users{
+    width: 80%;
+    padding: 10px 10px 10px 40px;
+}
+
+.users2 {
+    width: 80%;
+    padding: 10px 10px 10px 20px;
+}
 
 
 /*Fin MAtenedor Usuarios*/

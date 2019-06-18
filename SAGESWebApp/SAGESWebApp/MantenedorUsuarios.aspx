@@ -19,6 +19,7 @@
     </div>
     <br />
     <br />
+    <div class="users2">
     <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="false" DataKeyNames="rut, correoElectronico" CssClass="mydatagrid" PagerStyle-CssClass="pager"
  HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" OnPageIndexChanging="GridUsuarios_PageIndexChanging" OnRowCancelingEdit="GridUsuarios_RowCancelingEdit" OnRowDeleting="GridUsuarios_RowDeleting" OnRowEditing="GridUsuarios_RowEditing" OnRowUpdating="GridUsuarios_RowUpdating">  
                     <Columns>  
@@ -34,19 +35,21 @@
                         <asp:CommandField ShowSelectButton="true" ButtonType="Image" HeaderText="Activar" SelectImageUrl="~/img/ActivarUsuario.png"/>--%>
                     </Columns>  
                 </asp:GridView> 
+        </div>
     <br />
-    <div class="but">
+    <div class="but4">
         <asp:Button runat="server" ID="Crea" Text="Nuevo Usuario" Width="133px"  Height="24px" CssClass="btGrisNegrita" OnClick="Crea_Click" />
     </div>
     <br />   
     <br />
+    <div class="users">
     <asp:MultiView ID="Opciones" runat="server">
         <asp:View ID="Crear" runat="server">
             <br />
             <asp:label runat="server" Width="300px">Rut:</asp:label><asp:TextBox ID="Rut_Usuario" runat="server" OnTextChanged="Rut_Usuario_TextChanged" Width="500px"></asp:TextBox>
             <br />
             <br />
-            <asp:label runat="server" Width="1000px" ID="existeUsuario"></asp:label>
+            <asp:label runat="server" Width="300px" ID="existeUsuario"></asp:label>
             <br />
             <br />
             <asp:label runat="server" Width="300px">Correo Usuario:</asp:label><asp:TextBox ID="Correo_Usuario" runat="server" Width="500px"></asp:TextBox>
@@ -76,7 +79,9 @@
                 <asp:Button runat="server" Width="133px"  Height="24px" CssClass="btGrisNegrita" OnClick="CreaUsuario_Click" Text="Crear Usuario" ID="CreaUsuario"/>
             </div>
                 </asp:View>        
-    </asp:MultiView>   
+    </asp:MultiView> 
+        
+        </div>
     <%--<asp:label runat="server" Width="300px" ID="AdminCambioClave"></asp:label>
     <br />--%>
     </div>

@@ -17,12 +17,13 @@
 
 
     <div class="header">
-            <h3>Bienvenido a D-Lab INACAP Apoquindo</h3>
+            
         </div>
 <div id="signup">
-
+        <div class="Minsu">
+            <h3>Bienvenido a D-Lab INACAP Apoquindo</h3>
             <h6><b>Ingrese su usuario y contraseña para continuar:</b></h6>
-
+        </div>
         <div class="inputs">
             <asp:Login ID="Login_" runat="server" OnAuthenticate="Login_Authenticate"
                 LoginButtonText= "Ingresar"
