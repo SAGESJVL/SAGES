@@ -12,9 +12,9 @@
     </header> 
 
 <div class="Usuarios">
-    <div class="form-group">
-    <asp:Label runat="server" Width="300px">Seleccione un tipo de usuario:</asp:Label>
-        <asp:DropDownList runat="server" ID="DropTipoUsuario" Width="400px" OnSelectedIndexChanged="DropTipoUsuario_SelectedIndexChanged" AutoPostBack="True">                                                                   
+    <div class="Minsu">
+    <asp:Label runat="server" Width="280px">Seleccione un tipo de usuario:</asp:Label>
+        <asp:DropDownList runat="server" ID="DropTipoUsuario" Width="250px" OnSelectedIndexChanged="DropTipoUsuario_SelectedIndexChanged" AutoPostBack="True">                                                                   
         </asp:DropDownList>
     </div>
     <br />
@@ -35,9 +35,9 @@
                     </Columns>  
                 </asp:GridView> 
     <br />
-    <br />   
-    <br /> 
-    <asp:Button runat="server" ID="Crea" Text="Nuevo Usuario" OnClick="Crea_Click" />
+    <div class="but">
+        <asp:Button runat="server" ID="Crea" Text="Nuevo Usuario" Width="133px"  Height="24px" CssClass="btGrisNegrita" OnClick="Crea_Click" />
+    </div>
     <br />   
     <br />
     <asp:MultiView ID="Opciones" runat="server">
@@ -72,8 +72,10 @@
                                                                                </asp:DropDownList>--%>
             <br />
             <br />
-            <asp:Button runat="server" OnClick="CreaUsuario_Click" Text="Crear Usuario" ID="CreaUsuario"/>
-        </asp:View>        
+            <div class="but">
+                <asp:Button runat="server" Width="133px"  Height="24px" CssClass="btGrisNegrita" OnClick="CreaUsuario_Click" Text="Crear Usuario" ID="CreaUsuario"/>
+            </div>
+                </asp:View>        
     </asp:MultiView>   
     <%--<asp:label runat="server" Width="300px" ID="AdminCambioClave"></asp:label>
     <br />--%>

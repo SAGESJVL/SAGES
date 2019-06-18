@@ -19,6 +19,7 @@ h1 {
 h3 {
     text-align: center;
     color: black;
+    
 }
 
 h4 {
@@ -395,5 +396,41 @@ header {
     margin: auto;
     padding: 40px 40px 40px 40px;
 }
+
+.mv {
+    width: 70%;
+    margin: auto;
+    padding: 40px 40px 40px 40px;
+   
+}
+
+.Minsu {
+    width: 80%;
+    margin: auto;
+    padding: 20px 40px 40px 40px;
+}
+
+.btGrisNegrita {
+    background-color: #666666;
+    color: #FFFFFF;
+    font-size: 11px;
+    border: 1px solid #333333;
+    /* margin-left: 300%;*/
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+.but{
+    margin-left: 220px;
+}
+
+.but2 {
+    margin-left: 260px;
+}
+
+.but3 {
+    margin-left: -60px;
+}
+
+
 
 /*Fin MAtenedor Usuarios*/

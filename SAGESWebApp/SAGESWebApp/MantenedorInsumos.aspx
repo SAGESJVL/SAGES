@@ -9,12 +9,15 @@
                 <h3>SAGES - Sistema de Administración y Gestión</h3>
         </div>
     </header> 
-
- <h3>Mantenedor de Insumos</h3> 
-    <p>En esta sección podrá ver los insumos existentes, modificar sus datos y crear nuevos insumos.
-    <br />
-    <asp:Label runat="server" Width="300px">Seleccione un tipo de insumo:</asp:Label><asp:DropDownList runat="server" ID="DropTipoInsumo" Width="400px" OnSelectedIndexChanged="DropTipoInsumo_SelectedIndexChanged" AutoPostBack="True">                                                                   
+    <div class="Minsu">
+        <h3>Mantenedor de Insumos</h3> 
+        <p>En esta sección podrá ver los insumos existentes, modificar sus datos y crear nuevos insumos.
+   <br />
+   <br />
+    <asp:Label runat="server" Width="220px">Seleccione un tipo de insumo:</asp:Label><asp:DropDownList runat="server" ID="DropTipoInsumo" Width="300px" OnSelectedIndexChanged="DropTipoInsumo_SelectedIndexChanged" AutoPostBack="True">                                                                   
                                                                      </asp:DropDownList>
+
+     </div>
    <asp:GridView ID="GridInsumos" runat="server" AutoGenerateColumns="false" DataKeyNames="idInsumo" CssClass="mydatagrid" PagerStyle-CssClass="pager"
  HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" OnPageIndexChanging="GridInsumos_PageIndexChanging" OnRowCancelingEdit="GridInsumos_RowCancelingEdit" OnRowDeleting="GridInsumos_RowDeleting" OnRowEditing="GridInsumos_RowEditing" OnRowUpdating="GridInsumos_RowUpdating">  
                     <Columns>  
@@ -28,10 +31,12 @@
                 </asp:GridView> 
     <br />
     <br />   
-    <br /> 
-    <asp:Button runat="server" ID="Crea" Text="Nuevo Insumo" OnClick="Crea_Click" />
+    <div class="but2">
+        <asp:Button runat="server" ID="Crea" Text="Nuevo Insumo" Width="133px"  Height="24px" CssClass="btGrisNegrita"  OnClick="Crea_Click" />
+    </div>
     <br />   
     <br />
+    <div class="mv">
     <asp:MultiView ID="Opciones" runat="server">
         <asp:View ID="Crear" runat="server">
             <asp:Label runat="server" Width="300px">Descripción:</asp:Label><asp:TextBox runat="server" ID="crea_descripcion" TextMode="MultiLine" MaxLength="200" Height="50px" Width="400px" Wrap="true" ></asp:TextBox>
@@ -51,7 +56,10 @@
                                                                      </asp:DropDownList>
             <br />
             <br />
-            <asp:Button runat="server" ID="CreaInsumo" OnClick="CreaInsumo_Click" Text="Grabar" />
-        </asp:View>        
-    </asp:MultiView>   
+            <div class="but3">
+                <asp:Button runat="server" ID="CreaInsumo" Width="133px"  Height="24px" CssClass="btGrisNegrita" OnClick="CreaInsumo_Click" Text="Grabar" />
+            </div>
+            </asp:View>        
+    </asp:MultiView> 
+        </div>
 </asp:Content>
